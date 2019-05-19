@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+
+//rippingcorn21 was here!
+
 public class labyrinth{
   public boolean[][] maze;
 
