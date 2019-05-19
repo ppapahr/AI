@@ -6,7 +6,14 @@ import java.util.Random;
 
 public class labyrinth{
   public boolean[][] maze;
-
+  
+  //constructor
+  labyrinth(int size, int p, int[] start, int[] end1, int[] end2){
+	  
+	  //code here
+	  
+  }
+  
 
   public void generateMaze(int N, double p){
     maze = new boolean[N][N];
@@ -42,7 +49,7 @@ public class node{
 	node(node p, int[] coord){
 		parent = p;
 		pos = coord;
-    children = new node[8];
+		children = new node[8];
 		return;
 	}
 
