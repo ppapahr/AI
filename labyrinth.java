@@ -26,7 +26,19 @@ public class labyrinth{
   }
 
   public void printMaze(){
-
+    String st = "";
+    for(int i=0; i<maze.length; i++){
+      for(int j=0; j<maze.length; j++){
+        if(maze[i][j] == true){
+          st += "1"; // kanoume tin simvasi oti to 1 simainei adeio keli (true) kai to 0 empodio (false)
+        }
+        else{
+          st += "0";
+        }
+      }
+      st += "\n";
+    }
+    System.out.println(st);
   }
 
 
