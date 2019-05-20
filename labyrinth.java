@@ -30,7 +30,7 @@ public class labyrinth{
 
 
 
-  //BFS
+  // BFS
 
   public void ucsSolve(){
 
@@ -53,14 +53,17 @@ public class labyrinth{
   }
 
 
-  //A*
+  // A*
 
   public void aStar(){
 
-
+	
 
   }
 
+  
+  
+  // finder
   private node h(node[] children){
 	  
 	  node chosenOne;
@@ -103,7 +106,7 @@ public class labyrinth{
   }
   
   
-  //calculating the distance of you points in the matrix using pithagorean theorem
+  // calculating the distance of you points in the matrix using pithagorean theorem
   private double distance(int[] a, int[] b){
 	  
 	  int d;
@@ -126,7 +129,7 @@ public class node{
 	public node parent;
 	public node[] children;
 
-	//constructor
+	// constructor
 	node(node p, int[] coord){
 		parent = p;
 		pos = coord;
