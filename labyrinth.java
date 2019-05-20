@@ -2,17 +2,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-//rippingcorn21 was here!
-
 public class labyrinth{
   public boolean[][] maze;
   
-  //constructor
-  labyrinth(int size, int p, int[] start, int[] end1, int[] end2){
-	  
-	  //code here
-	  
-  }
   
 
   public void generateMaze(int N, double p){
