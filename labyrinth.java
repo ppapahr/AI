@@ -97,3 +97,54 @@ public class node{
 
 
 }
+
+
+
+
+
+// implementation of a FIFO queue
+public class Queue<Item> 
+{
+	private class Node 
+	{
+		Item item; 
+		Node next;
+		Node (Item item) 
+		{
+			this.item = item; 
+			next = null;
+			
+		}
+	
+	}
+    private Node head,tail;
+    Queue()
+    {
+    	head = null;
+    	tail = null;	
+    }
+    boolean isEmpty() 
+    {
+    	return(head == null);
+    }
+    void put(Item item) 
+    {
+    	Node t = tail;
+    	tail = new Node(item);
+    	if (isEmpty())
+    	{
+    		head = tail;
+    	}	
+    	else
+    	{
+    		t.next = tail;
+    	}
+    }
+    Item get()
+    {
+    	Item item = head.item;
+    	Node t = head.next;
+    	head = t;
+    	return item;
+    }
+}
