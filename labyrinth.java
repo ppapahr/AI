@@ -57,65 +57,65 @@ public class labyrinth{
 
   public void aStar(){
 
-	
+
 
   }
 
-  
-  
+
+
   // finder
   private node h(node[] children){
-	  
+
 	  node chosenOne;
-	
-	if(children.length() == 0){ //possible syntax error
+
+	if(children.length == 0){ //possible syntax error
 		println("children size 0");
 		return;
 	}
-	
+
 	if(this.distance(children[0].pos, G1) < this.distance(children[0].pos, G2)){
-		
+
 		double min = this.distance(children[0].pos, G2);
-		
+
 	}
 	else{
-		
+
 		double min = this.distance(children[0].pos, G1);
-		
+
 	}
 	chosenOne = children[0];
-	
-	for(int i = 1, i < children.length(), i ++){  //possible syntax error
-		
+
+	for(int i = 1, i < children.length, i ++){  //possible syntax error
+
 		if(min > this.distance(children[i].pos, G1)){
-			
+
 			min = this.distance(children[i].pos, G1);
 			chosenOne = children[i];
 		}
 		if(min > this.distance(children[i].pos, G2)){
-			
+
 			min = this.distance(children[i].pos, G2);
 			chosenOne = children[i];
 		}
-		
+
 	}
 
 	return chosenOne;
-	
-	
+
+
   }
-  
-  
+
+
   // calculating the distance of you points in the matrix using pithagorean theorem
   private double distance(int[] a, int[] b){
-	  
+
 	  int d;
 	  int x;
 	  int y;
 	  x = abs(a[0] - b[0]);
 	  y = abs(a[1] - b[1]);
 	  d = (x*x) + (y*y);
-	  
+
 	  return Math.sqrt((double)d); //need to check the casting to double
   }
 
@@ -128,13 +128,13 @@ public class node{
 	public int[] pos;
 	public node parent;
 	public node[] children;
-	
+
 	// starting point constructor
 	node(int[] coord){
-		
+
 		pos = coord;
 		return;
-		
+
 	}
 
 	// constructor
@@ -165,38 +165,38 @@ public class node{
 
 
 // implementation of a FIFO queue
-public class Queue<Item> 
+public class Queue<Item>
 {
-	private class Node 
+	private class Node
 	{
-		Item item; 
+		Item item;
 		Node next;
-		Node (Item item) 
+		Node (Item item)
 		{
-			this.item = item; 
+			this.item = item;
 			next = null;
-			
+
 		}
-	
+
 	}
     private Node head,tail;
     Queue()
     {
     	head = null;
-    	tail = null;	
+    	tail = null;
     }
-    boolean isEmpty() 
+    boolean isEmpty()
     {
     	return(head == null);
     }
-    void put(Item item) 
+    void put(Item item)
     {
     	Node t = tail;
     	tail = new Node(item);
     	if (isEmpty())
     	{
     		head = tail;
-    	}	
+    	}
     	else
     	{
     		t.next = tail;
