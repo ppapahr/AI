@@ -62,9 +62,15 @@ public class labyrinth{
 
   // A*
 
-  public void aStar(){
+  public void aStar(int[] s, int[] e1, int[] e2){
 
-
+	int[] start = s;
+	int[] end1 = e1;
+	int[] end2 = e2;
+	
+	ArrayList deadEnds = new ArrayList();
+	ArrayList searchField = new ArrayList();
+	
 
   }
 
