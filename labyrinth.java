@@ -61,11 +61,25 @@ public class labyrinth{
 
   }
 
-  private node h(node[] childrens){
+  private node h(node[] children){
+	
+	
+	
+	
+  }
+  
+  
+  //calculating the distance of you points in the matrix using pithagorean theorem
+  private double distance(int[] a, int[] b){
 	  
-
-	
-	
+	  int d;
+	  int x;
+	  int y;
+	  x = abs(a[0] - b[0]);
+	  y = abs(a[1] - b[1]);
+	  d = (x*x) + (y*y);
+	  
+	  return Math.sqrt((double)d); //need to check the casting to double
   }
 
 
