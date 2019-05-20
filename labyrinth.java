@@ -128,6 +128,14 @@ public class node{
 	public int[] pos;
 	public node parent;
 	public node[] children;
+	
+	// starting point constructor
+	node(int[] coord){
+		
+		pos = coord;
+		return;
+		
+	}
 
 	// constructor
 	node(node p, int[] coord){
