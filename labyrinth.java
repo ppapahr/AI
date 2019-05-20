@@ -62,8 +62,42 @@ public class labyrinth{
   }
 
   private node h(node[] children){
+	  
+	  node chosenOne;
 	
+	if(children.length() == 0){ //possible syntax error
+		println("children size 0");
+		return;
+	}
 	
+	if(this.distance(children[0].pos, G1) < this.distance(children[0].pos, G2)){
+		
+		double min = this.distance(children[0].pos, G2);
+		
+	}
+	else{
+		
+		double min = this.distance(children[0].pos, G1);
+		
+	}
+	chosenOne = children[0];
+	
+	for(int i = 1, i < children.length(), i ++){  //possible syntax error
+		
+		if(min > this.distance(children[i].pos, G1)){
+			
+			min = this.distance(children[i].pos, G1);
+			chosenOne = children[i];
+		}
+		if(min > this.distance(children[i].pos, G2)){
+			
+			min = this.distance(children[i].pos, G2);
+			chosenOne = children[i];
+		}
+		
+	}
+
+	return chosenOne;
 	
 	
   }
