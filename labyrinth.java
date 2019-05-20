@@ -4,7 +4,11 @@ import java.lang.Math;
 
 
 public class labyrinth{
-  public boolean[][] maze;
+  // 1 in mazes means available cell
+  // 0 means unavailable cell
+  // -1 means cell has already been accessed
+  public int[][] maze_ucs;
+  public int[][] maze_astar;
   public int ucs_cost;
   public int astar_cost;
   public int[] S;
@@ -12,17 +16,20 @@ public class labyrinth{
   public int[] G2;
 
   public void generateMaze(int N, double p){
-    maze = new boolean[N][N];
+    maze_ucs = new int[N][N];
+    maze_astar = new int[N][N];
     Random rand = new Random();
     double r;
     for(int i=0; i<N; i++){
       for(int j=0; j<N; j++){
         r = rand.nextDouble();
         if(r <= p){
-          maze[i][j] = true;
+          maze_ucs[i][j] = 1;
+          maze_astar[i][j] = 1;
         }
         else{
-          maze[i][j] = false;
+          maze_ucs[i][j] = 0;
+          maze_astar[i][j] = 0;
         }
       }
     }
@@ -38,10 +45,10 @@ public class labyrinth{
 
   public void printMaze(){
     String st = "";
-    for(int i=0; i<maze.length; i++){
-      for(int j=0; j<maze.length; j++){
-        if(maze[i][j] == true){
-          st += "1"; // kanoume tin simvasi oti to 1 simainei adeio keli (true) kai to 0 empodio (false)
+    for(int i=0; i<maze_ucs.length; i++){ // can use either maze_ucs or maze_astar
+      for(int j=0; j<maze_ucs.length; j++){
+        if(maze_ucs[i][j] == 1){
+          st += "1"; // we make the convention that 1 means empty cell and 0 means blocked cell
         }
         else{
           st += "0";
