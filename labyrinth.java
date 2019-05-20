@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class labyrinth{
   public boolean[][] maze;
-
-
+  public int ucs_cost;
+  public int astar_cost;
 
   public void generateMaze(int N, double p){
     maze = new boolean[N][N];
@@ -29,7 +29,7 @@ public class labyrinth{
   //BFS
   
   public void ucsSolve(){
-    
+
   }
 
   public void printMaze(){
