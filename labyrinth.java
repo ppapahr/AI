@@ -24,6 +24,10 @@ public class labyrinth{
     }
   }
 
+  
+  
+  //BFS
+  
   public void ucsSolve(){
     
   }
@@ -43,6 +47,22 @@ public class labyrinth{
     }
     System.out.println(st);
   }
+  
+  
+  //A*
+  
+  public void aStar(){
+	  
+	  
+	  
+  }
+  
+  private void h(node s){
+	  
+	  
+	  
+  }
+  
 
 
 }
