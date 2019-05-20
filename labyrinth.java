@@ -24,6 +24,10 @@ public class labyrinth{
     }
   }
 
+  public void ucsSolve(){
+    
+  }
+
   public void printMaze(){
     String st = "";
     for(int i=0; i<maze.length; i++){
