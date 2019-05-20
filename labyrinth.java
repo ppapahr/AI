@@ -71,38 +71,38 @@ public class labyrinth{
 
 
   // finder
-  private node h(node[] children){
+  private node h(node[] searchField){
 
 	  node chosenOne;
 
-	if(children.length == 0){
-		println("children size 0");
+	if(searchField.length == 0){
+		println("searchField size 0");
 		return;
 	}
 
-	if(this.distance(children[0].pos, G1) < this.distance(children[0].pos, G2)){
+	if(this.distance(searchField[0].pos, G1) < this.distance(searchField[0].pos, G2)){
 
-		double min = this.distance(children[0].pos, G2);
+		double min = this.distance(searchField[0].pos, G2);
 
 	}
 	else{
 
-		double min = this.distance(children[0].pos, G1);
+		double min = this.distance(searchField[0].pos, G1);
 
 	}
-	chosenOne = children[0];
+	chosenOne = searchField[0];
 
-	for(int i = 1, i < children.length, i ++){
+	for(int i = 1, i < searchField.length, i ++){
 
-		if(min > this.distance(children[i].pos, G1)){
+		if(min > this.distance(searchField[i].pos, G1)){
 
-			min = this.distance(children[i].pos, G1);
-			chosenOne = children[i];
+			min = this.distance(searchField[i].pos, G1);
+			chosenOne = searchField[i];
 		}
-		if(min > this.distance(children[i].pos, G2)){
+		if(min > this.distance(searchField[i].pos, G2)){
 
-			min = this.distance(children[i].pos, G2);
-			chosenOne = children[i];
+			min = this.distance(searchField[i].pos, G2);
+			chosenOne = searchField[i];
 		}
 
 	}
