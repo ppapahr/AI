@@ -68,7 +68,7 @@ public class labyrinth{
 
 	  node chosenOne;
 
-	if(children.length == 0){ //possible syntax error
+	if(children.length == 0){
 		println("children size 0");
 		return;
 	}
@@ -85,7 +85,7 @@ public class labyrinth{
 	}
 	chosenOne = children[0];
 
-	for(int i = 1, i < children.length, i ++){  //possible syntax error
+	for(int i = 1, i < children.length, i ++){
 
 		if(min > this.distance(children[i].pos, G1)){
 
