@@ -8,7 +8,7 @@ public class labyrinth{
   // 0 means unavailable cell
   // -1 means cell has already been accessed
   public int[][] maze_ucs;
-  public int[][] maze_astar;
+  public int[][] maze_Astar;
   public int ucs_cost;
   public int astar_cost;
   public int[] S;
@@ -24,7 +24,7 @@ public class labyrinth{
 
   public void generateMaze(int N, double p){
     maze_ucs = new int[N][N];
-    maze_astar = new int[N][N];
+    maze_Astar = new int[N][N];
     Random rand = new Random();
     double r;
     for(int i=0; i<N; i++){
@@ -36,11 +36,11 @@ public class labyrinth{
 
         if(r <= p){
           maze_ucs[i][j] = 1;
-          maze_astar[i][j] = 1;
+          maze_Astar[i][j] = 1;
         }
         else{
           maze_ucs[i][j] = 0;
-          maze_astar[i][j] = 0;
+          maze_Astar[i][j] = 0;
         }
       }
     }
@@ -56,7 +56,7 @@ public class labyrinth{
 
   public void printMaze(){
     String st = "";
-    for(int i=0; i<maze_ucs.length; i++){ // can use either maze_ucs or maze_astar
+    for(int i=0; i<maze_ucs.length; i++){ // can use either maze_ucs or maze_Astar
       for(int j=0; j<maze_ucs.length; j++){
         if(maze_ucs[i][j] == 1){
           st += "1"; // we make the convention that 1 means empty cell and 0 means blocked cell
@@ -75,26 +75,26 @@ public class labyrinth{
 
   public void aStar(){
 
-	int[] start = s;
-	int[] end1 = e1;
-	int[] end2 = e2;
-	int[][] matrix = m;
+	//int[] start = S;
+	//int[] end1 = e1;
+	//int[] end2 = e2;
+	//int[][] matrix = m;
 
 	ArrayList deadEnds = new ArrayList();
 	ArrayList searchField = new ArrayList();
 	
-	node check = new node(start);
-	matrix[start[0]][start[1]] = -1;
+	node check = new node(S);
+	maze_Astar[S[0]][S[1]] = -1;
 	
 	while(true){ // possible syntax error
 		
 		// checking if I 've reached an end point
-		if(check.pos[0] == end1[0] && check.pos[1] == end1[1]){
+		if(check.pos[0] == G1[0] && check.pos[1] == G1[1]){
 			
 			println("reached end point 1"); // debug message
 			break;
 		}
-		if(check.pos[0] == end2[0] && check.pos[1] == end2[1]){
+		if(check.pos[0] == G2[0] && check.pos[1] == G2[1]){
 			
 			println("reached end point 2"); // debug message
 			break;
@@ -105,49 +105,49 @@ public class labyrinth{
 		int x = check.pos[0];
 		int y = check.pos[1];
 		
-		if(matrix[x][y + 1] = 1){
+		if(maze_Astar[x][y + 1] = 1){
 			
 			
 		}
 		
 		
-		if(matrix[x][y - 1] = 1){
+		if(maze_Astar[x][y - 1] = 1){
 			
 			
 		}
 		
 		
-		if(matrix[x - 1][y] = 1){
+		if(maze_Astar[x - 1][y] = 1){
 			
 			
 		}
 		
 		
-		if(matrix[x - 1][y + 1] = 1){
+		if(maze_Astar[x - 1][y + 1] = 1){
 			
 			
 		}
 		
 		
-		if(matrix[x - 1][y - 1] = 1){
+		if(maze_Astar[x - 1][y - 1] = 1){
 			
 			
 		}
 		
 		
-		if(matrix[x + 1][y] = 1){
+		if(maze_Astar[x + 1][y] = 1){
 			
 			
 		}
 		
 		
-		if(matrix[x + 1][y + 1] = 1){
+		if(maze_Astar[x + 1][y + 1] = 1){
 			
 			
 		}
 		
 		
-		if(matrix[x + 1][y - 1] = 1){
+		if(maze_Astar[x + 1][y - 1] = 1){
 			
 			
 		}
