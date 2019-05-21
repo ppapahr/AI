@@ -249,7 +249,7 @@ public class node{
 
 	public int[] pos;
 	public node parent;
-	public node[] children;
+	public node[] children = new node[8];
 
 	// starting point constructor
 	node(int[] coord){
@@ -277,7 +277,9 @@ public class node{
 	public node[] getChildren(){
 		return children;
 	}
-
+	
+	
+	// depricated
 	public void setChildren(node[] c){
 		children = c;
 
