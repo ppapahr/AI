@@ -76,9 +76,86 @@ public class labyrinth{
 	ArrayList deadEnds = new ArrayList();
 	ArrayList searchField = new ArrayList();
 	
+	node check = new node(start);
+	matrix[start[0]][start[1]] = -1;
+	
+	while(true){ // possible syntax error
+		
+		// checking if I 've reached an end point
+		if(check.pos[0] == end1[0] && check.pos[1] == end1[1]){
+			
+			println("reached end point 1"); // debug message
+			break;
+		}
+		if(check.pos[0] == end2[0] && check.pos[1] == end2[1]){
+			
+			println("reached end point 2"); // debug message
+			break;
+		}
+		
+		// adding the children of the checked node to the search field
+		
+		int x = check.pos[0];
+		int y = check.pos[1];
+		
+		if(matrix[x][y + 1] = 1){
+			
+			
+		}
+		
+		
+		if(matrix[x][y - 1] = 1){
+			
+			
+		}
+		
+		
+		if(matrix[x - 1][y] = 1){
+			
+			
+		}
+		
+		
+		if(matrix[x - 1][y + 1] = 1){
+			
+			
+		}
+		
+		
+		if(matrix[x - 1][y - 1] = 1){
+			
+			
+		}
+		
+		
+		if(matrix[x + 1][y] = 1){
+			
+			
+		}
+		
+		
+		if(matrix[x + 1][y + 1] = 1){
+			
+			
+		}
+		
+		
+		if(matrix[x + 1][y - 1] = 1){
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+	}
+	
 	
 
   }
+  
 
 
 
