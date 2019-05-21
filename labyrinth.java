@@ -15,6 +15,13 @@ public class labyrinth{
   public int[] G1;
   public int[] G2;
 
+  public void setPoints(int[] start, int[] e1, int[] e2){
+    S = start;
+    G1 = e1
+    G2 = e2;
+    return;
+  }
+
   public void generateMaze(int N, double p){
     maze_ucs = new int[N][N];
     maze_astar = new int[N][N];
@@ -23,10 +30,10 @@ public class labyrinth{
     for(int i=0; i<N; i++){
       for(int j=0; j<N; j++){
         r = rand.nextDouble();
-		
-		
+
+
 		// 1 is empty and 0 is blocked, later -1 will mean that the search function has passed from that possision.
-		
+
         if(r <= p){
           maze_ucs[i][j] = 1;
           maze_astar[i][j] = 1;
@@ -72,11 +79,11 @@ public class labyrinth{
 	int[] end1 = e1;
 	int[] end2 = e2;
 	int[][] matrix = m;
-	
+
 	ArrayList deadEnds = new ArrayList();
 	ArrayList searchField = new ArrayList();
-	
-	
+
+
 
   }
 
