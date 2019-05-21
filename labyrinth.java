@@ -116,61 +116,61 @@ public class labyrinth{
 		int y = check.pos[1];
 		
 		node n;
-
-		if(maze_Astar[x][y + 1] == 1){
-			n = new node(check, [x,y+1]);
-			searchField.add(n);
-
-		}
-
-
-		if(maze_Astar[x][y - 1] == 1){
-			n = new node(check, [x,y-1]);
-			searchField.add(n);
-
-		}
-
-
-		if(maze_Astar[x - 1][y] == 1){
-			n = new node(check, [x-1,y]);
-			searchField.add(n);
-
-		}
-
-
-		if(maze_Astar[x - 1][y + 1] == 1){
-			n = new node(check, [x-1,y+1]);
-			searchField.add(n);
-
-		}
-
-
+		
 		if(maze_Astar[x - 1][y - 1] == 1){
 			n = new node(check, [x-1,y-1]);
 			searchField.add(n);
+			check.children[0] = n;
 
 		}
-
-
-		if(maze_Astar[x + 1][y] == 1){
-			n = new node(check, [x+1,y]);
+		
+		if(maze_Astar[x][y - 1] == 1){
+			n = new node(check, [x,y-1]);
 			searchField.add(n);
+			check.children[1] = n;
 
 		}
-
-
-		if(maze_Astar[x + 1][y + 1] == 1){
-			n = new node(check, [x+1,y+1]);
-			searchField.add(n);
-
-		}
-
 
 		if(maze_Astar[x + 1][y - 1] == 1){
 			n = new node(check, [x+1,y-1]);
 			searchField.add(n);
+			check.children[2] = n;
 
 		}
+
+		if(maze_Astar[x - 1][y] == 1){
+			n = new node(check, [x-1,y]);
+			searchField.add(n);
+			check.children[3] = n;
+		}
+
+		if(maze_Astar[x + 1][y] == 1){
+			n = new node(check, [x+1,y]);
+			searchField.add(n);
+			check.children[4] = n;
+
+		}
+		
+		if(maze_Astar[x - 1][y + 1] == 1){
+			n = new node(check, [x-1,y+1]);
+			searchField.add(n);
+			check.children[5] = n;
+		}
+		
+		if(maze_Astar[x][y + 1] == 1){
+			n = new node(check, [x,y+1]);
+			searchField.add(n);
+			check.children[6] = n;
+		}
+
+		if(maze_Astar[x + 1][y + 1] == 1){
+			n = new node(check, [x+1,y+1]);
+			searchField.add(n);
+			check.children[7] = n;
+		}
+
+
+		
 
 
 
