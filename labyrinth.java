@@ -51,7 +51,12 @@ public class labyrinth{
   // BFS
 
   public void ucsSolve(){
-
+    Queue<node> bfsq = new Queue<node>();
+    node start = new node(S);
+    bfsq.put(start);
+    while(!bfsq.isEmpty()){
+      node temp = bfsq.get();
+    }
   }
 
   public void printMaze(){
@@ -236,8 +241,9 @@ public class node{
 
 	// starting point constructor
 	node(int[] coord){
-
-		pos = coord;
+    pos = new int[2];
+		pos[0] = coord[0];
+    pos[1] = coord[1];
 		// return;
 
 	}
@@ -245,7 +251,9 @@ public class node{
 	// constructor
 	node(node p, int[] coord){
 		parent = p;
-		pos = coord;
+		pos = new int[2];
+    pos[0] = coord[0];
+    pos[1] = coord[1];
 		// return;
 	}
 
