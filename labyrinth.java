@@ -10,7 +10,7 @@ public class labyrinth{
   public int[][] maze_ucs;
   public int[][] maze_Astar;
   public int ucs_cost;
-  public int astar_cost;
+  public int Astar_cost;
   public int[] S;
   public int[] G1;
   public int[] G2;
