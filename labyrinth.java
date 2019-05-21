@@ -110,7 +110,8 @@ public class labyrinth{
 			break;
 		}
 
-		// adding the children of the checked node to the search field
+		// adding the children of the checked node to the search field and to its children list
+		// need to check how persistant the check node will be
 
 		int x = check.pos[0];
 		int y = check.pos[1];
