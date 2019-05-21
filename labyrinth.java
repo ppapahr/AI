@@ -80,8 +80,8 @@ public class labyrinth{
 	//int[] end2 = e2;
 	//int[][] matrix = m;
 
-	ArrayList deadEnds = new ArrayList();
-	ArrayList searchField = new ArrayList();
+	ArrayList<node> deadEnds = new ArrayList<node>();
+	ArrayList<node> searchField = new ArrayList<node>();
 
 	node check = new node(S);
 	maze_Astar[S[0]][S[1]] = -1;
