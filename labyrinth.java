@@ -73,7 +73,7 @@ public class labyrinth{
 
   // A*
 
-  public void aStar(int[] s, int[] e1, int[] e2, int[][] m){
+  public void aStar(){
 
 	int[] start = s;
 	int[] end1 = e1;
@@ -238,15 +238,12 @@ public class node{
 	node(int[] coord){
 
 		pos = coord;
-		return;
-
 	}
 
 	// constructor
 	node(node p, int[] coord){
 		parent = p;
 		pos = coord;
-		return;
 	}
 
 
