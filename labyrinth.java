@@ -52,11 +52,14 @@ public class labyrinth{
 
   public void ucsSolve(){
     Queue<node> bfsq = new Queue<node>();
+    int N = maze_ucs[0].length;
     node start = new node(S);
     bfsq.put(start);
     while(!bfsq.isEmpty()){
       node temp = bfsq.get();
-
+      int x = temp.pos[0];
+      int y = temp.pos[1];
+      maze_ucs[x][y] = -1;
     }
   }
 
