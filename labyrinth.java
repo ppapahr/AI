@@ -73,7 +73,7 @@ public class labyrinth{
 
   // A*
 
-  public void aStar(){
+  public void aStar(int[] s, int[] e1, int[] e2, int[][] m){
 
 	//int[] start = S;
 	//int[] end1 = e1;
@@ -82,89 +82,89 @@ public class labyrinth{
 
 	ArrayList deadEnds = new ArrayList();
 	ArrayList searchField = new ArrayList();
-	
+
 	node check = new node(S);
 	maze_Astar[S[0]][S[1]] = -1;
-	
+
 	while(true){ // possible syntax error
-		
+
 		// checking if I 've reached an end point
 		if(check.pos[0] == G1[0] && check.pos[1] == G1[1]){
-			
+
 			println("reached end point 1"); // debug message
 			break;
 		}
 		if(check.pos[0] == G2[0] && check.pos[1] == G2[1]){
-			
+
 			println("reached end point 2"); // debug message
 			break;
 		}
-		
+
 		// adding the children of the checked node to the search field
-		
+
 		int x = check.pos[0];
 		int y = check.pos[1];
-		
+
 		if(maze_Astar[x][y + 1] = 1){
-			
-			
+
+
 		}
-		
-		
+
+
 		if(maze_Astar[x][y - 1] = 1){
-			
-			
+
+
 		}
-		
-		
+
+
 		if(maze_Astar[x - 1][y] = 1){
-			
-			
+
+
 		}
-		
-		
+
+
 		if(maze_Astar[x - 1][y + 1] = 1){
-			
-			
+
+
 		}
-		
-		
+
+
 		if(maze_Astar[x - 1][y - 1] = 1){
-			
-			
+
+
 		}
-		
-		
+
+
 		if(maze_Astar[x + 1][y] = 1){
-			
-			
+
+
 		}
-		
-		
+
+
 		if(maze_Astar[x + 1][y + 1] = 1){
-			
-			
+
+
 		}
-		
-		
+
+
 		if(maze_Astar[x + 1][y - 1] = 1){
-			
-			
+
+
 		}
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 	}
-	
-	
+
+
 
 
 
   }
-  
+
 
 
 
@@ -238,12 +238,15 @@ public class node{
 	node(int[] coord){
 
 		pos = coord;
+		return;
+
 	}
 
 	// constructor
 	node(node p, int[] coord){
 		parent = p;
 		pos = coord;
+		return;
 	}
 
 
