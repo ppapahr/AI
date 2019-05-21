@@ -169,16 +169,37 @@ public class labyrinth{
 			searchField.add(n);
 			check.children[7] = n;
 		}
-
-
+		
+		// check if the node does not have any children (dead end)
+		int dead = 1;
+		for(int i = 0, i < 8, i++){
+			
+			if(check.children[i] != null){ // check if the node list initializes with "null" in all possitions 
+				dead = 0;                  // if the parents have shallow pointers to children then the program wont execute this line
+				
+			}
+			
+		}
+		if(dead == 1){
+			deadEnds.add(check);	
+		}
+		
+		
+		if(searchField.isEmpty()){
+			// call h(s) with dead end list
+			break;
+		}
 		
 
-
+		// call h(s) with search field list
 
 
 
 
 	}
+	
+	// the node check will be the closest to one of the end points
+	
 
 
 
