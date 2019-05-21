@@ -56,13 +56,15 @@ public class labyrinth{
     bfsq.put(start);
     while(!bfsq.isEmpty()){
       node temp = bfsq.get();
+
     }
   }
 
   public void printMaze(){
     String st = "";
-    for(int i=0; i<maze_ucs.length; i++){ // can use either maze_ucs or maze_Astar
-      for(int j=0; j<maze_ucs.length; j++){
+    int N = maze_ucs[0].length; // can use either maze_ucs or maze_Astar
+    for(int i=0; i<N; i++){
+      for(int j=0; j<N; j++){
         if(maze_ucs[i][j] == 1){
           st += "1"; // we make the convention that 1 means empty cell and 0 means blocked cell
         }
