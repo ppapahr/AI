@@ -262,12 +262,12 @@ public class labyrinth{
 
 
 		if(searchField.isEmpty()){
-			// call h(s) with dead end list
+			check = h(deadEnds);
 			break;
 		}
 
 
-		// call h(s) with search field list
+		check = h(searchField);
 		
 		
 		Astar_expansion ++;
@@ -289,6 +289,8 @@ public class labyrinth{
 
 
   // finder
+  // needs to get fixed only calculates distance between end point and search field
+  
   private node h(arrayList<node> searchField){
 
 	  node chosenOne;
