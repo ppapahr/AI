@@ -60,7 +60,27 @@ public class labyrinth{
       int x = temp.pos[0];
       int y = temp.pos[1];
       maze_ucs[x][y] = -1;
+
+      if(isFreeUcs(x+1,y)){
+        
+      }
     }
+  }
+
+  private static boolean isFreeUcs(int x, int y){
+    int N = maze_ucs[0].length;
+    if((x < N && x >= 0) && (y < N && y >= 0) && maze_ucs[x][y] == 1){
+      return true;
+    }
+    return false;
+  }
+
+  private static boolean isFreeAstar(int x, int y){
+    int N = maze_Astar[0].length;
+    if((x < N && x >= 0) && (y < N && y >= 0) && maze_Astar[x][y] == 1){
+      return true;
+    }
+    return false;
   }
 
   public void printMaze(){
@@ -115,16 +135,16 @@ public class labyrinth{
 
 		int x = check.pos[0];
 		int y = check.pos[1];
-		
+
 		node n;
-		
+
 		if(maze_Astar[x - 1][y - 1] == 1){
 			n = new node(check, [x-1,y-1]);
 			searchField.add(n);
 			check.children[0] = n;
 
 		}
-		
+
 		if(maze_Astar[x][y - 1] == 1){
 			n = new node(check, [x,y-1]);
 			searchField.add(n);
@@ -151,13 +171,13 @@ public class labyrinth{
 			check.children[4] = n;
 
 		}
-		
+
 		if(maze_Astar[x - 1][y + 1] == 1){
 			n = new node(check, [x-1,y+1]);
 			searchField.add(n);
 			check.children[5] = n;
 		}
-		
+
 		if(maze_Astar[x][y + 1] == 1){
 			n = new node(check, [x,y+1]);
 			searchField.add(n);
@@ -169,27 +189,27 @@ public class labyrinth{
 			searchField.add(n);
 			check.children[7] = n;
 		}
-		
+
 		// check if the node does not have any children (dead end)
 		int dead = 1;
 		for(int i = 0, i < 8, i++){
-			
-			if(check.children[i] != null){ // check if the node list initializes with "null" in all possitions 
+
+			if(check.children[i] != null){ // check if the node list initializes with "null" in all possitions
 				dead = 0;                  // if the parents have shallow pointers to children then the program wont execute this line
-				
+
 			}
-			
+
 		}
 		if(dead == 1){
-			deadEnds.add(check);	
+			deadEnds.add(check);
 		}
-		
-		
+
+
 		if(searchField.isEmpty()){
 			// call h(s) with dead end list
 			break;
 		}
-		
+
 
 		// call h(s) with search field list
 
@@ -197,9 +217,9 @@ public class labyrinth{
 
 
 	}
-	
+
 	// the node check will be the closest to one of the end points
-	
+
 
 
 
@@ -275,8 +295,8 @@ public class node{
 	public int[] pos;                            //  the list possisions
 	public node parent;                          //  0  1  2
 	public node[] children = new node[8];        //  3  X  4
-                                                 //  5  6  7
-	// starting point constructor                //  
+                                               //  5  6  7
+	// starting point constructor                //
 	node(int[] coord){
     pos = new int[2];
 		pos[0] = coord[0];
@@ -302,8 +322,8 @@ public class node{
 	public node[] getChildren(){
 		return children;
 	}
-	
-	
+
+
 	// depricated
 	public void setChildren(node[] c){
 		children = c;
