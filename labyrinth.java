@@ -62,7 +62,51 @@ public class labyrinth{
       maze_ucs[x][y] = -1;
 
       if(isFreeUcs(x+1,y)){
+        node child = new node(temp, [x+1,y]);
+        temp.children[6] = child;
+        bfsq.put(child);
+      }
 
+      if(isFreeUcs(x-1,y)){
+        node child = new node(temp, [x-1,y]);
+        temp.children[1] = child;
+        bfsq.put(child);
+      }
+
+      if(isFreeUcs(x,y+1)){
+        node child = new node(temp, [x,y+1]);
+        temp.children[4] = child;
+        bfsq.put(child);
+      }
+
+      if(isFreeUcs(x,y-1)){
+        node child = new node(temp, [x,y-1]);
+        temp.children[3] = child;
+        bfsq.put(child);
+      }
+
+      if(isFreeUcs(x+1,y+1)){
+        node child = new node(temp, [x+1,y+1]);
+        temp.children[7] = child;
+        bfsq.put(child);
+      }
+
+      if(isFreeUcs(x+1,y-1)){
+        node child = new node(temp, [x+1,y-1]);
+        temp.children[5] = child;
+        bfsq.put(child);
+      }
+
+      if(isFreeUcs(x-1,y+1)){
+        node child = new node(temp, [x-1,y+1]);
+        temp.children[2] = child;
+        bfsq.put(child);
+      }
+
+      if(isFreeUcs(x-1,y-1)){
+        node child = new node(temp, [x-1,y-1]);
+        temp.children[0] = child;
+        bfsq.put(child);
       }
     }
   }
