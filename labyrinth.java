@@ -64,6 +64,8 @@ public class labyrinth{
 
       if((x==G1[0] && y==G1[1]) || (x==G2[0] && y==G2[1])){
         final_ucs.copy(temp);
+        System.out.println("exit found");
+        break;
       }
 
       if(isFreeUcs(x+1,y)){
@@ -114,6 +116,7 @@ public class labyrinth{
         bfsq.put(child);
       }
     }
+    return;
   }
 
   private static boolean isFreeUcs(int x, int y){   // method returns true if the cell we are about to go is empty and false if not
