@@ -275,38 +275,40 @@ public class labyrinth{
 
 
   // finder
-  private node h(node[] searchField){
+  private node h(arrayList<node> searchField){
 
 	  node chosenOne;
 
-	if(searchField.length == 0){
-		println("searchField size 0");
+	if(searchField.isEmpty()){
+		println("searchField is empty");
 		return;
 	}
 
-	if(this.distance(searchField[0].pos, G1) < this.distance(searchField[0].pos, G2)){
+	// there is no need to check for empty spots in the arrayList if items are removed with their index id, the items are shifted to cover the space
 
-		double min = this.distance(searchField[0].pos, G2);
+	if(this.distance(searchField.get(0).pos, G1) < this.distance(searchField.get(0).pos, G2)){
+
+		double min = this.distance(searchField.get(0).pos, G2);
 
 	}
 	else{
 
-		double min = this.distance(searchField[0].pos, G1);
+		double min = this.distance(searchField.get(0).pos, G1);
 
 	}
-	chosenOne = searchField[0];
+	chosenOne = searchField.get(0);
 
-	for(int i = 1, i < searchField.length, i ++){
+	for(int i = 1, i < searchField.size(), i ++){
 
-		if(min > this.distance(searchField[i].pos, G1)){
+		if(min > this.distance(searchField.get(i).pos, G1)){
 
-			min = this.distance(searchField[i].pos, G1);
-			chosenOne = searchField[i];
+			min = this.distance(searchField.get(i).pos, G1);
+			chosenOne = searchField.get(i);
 		}
-		if(min > this.distance(searchField[i].pos, G2)){
+		if(min > this.distance(searchField.get(i).pos, G2)){
 
-			min = this.distance(searchField[i].pos, G2);
-			chosenOne = searchField[i];
+			min = this.distance(searchField.get(i).pos, G2);
+			chosenOne = searchField.get(i);
 		}
 
 	}
