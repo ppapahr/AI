@@ -65,7 +65,7 @@ public class labyrinth{
       if((x==G1[0] && y==G1[1]) || (x==G2[0] && y==G2[1])){
         final_ucs.copy(temp);
         System.out.println("exit found");
-        break;
+        return;
       }
 
       if(isFreeUcs(x+1,y)){
@@ -116,6 +116,7 @@ public class labyrinth{
         bfsq.put(child);
       }
     }
+    System.out.println("no exit found");
     return;
   }
 
