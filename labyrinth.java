@@ -339,7 +339,7 @@ public class node{
 	public int[] pos;                            //  the list possisions
 	public node parent;                          //  0  1  2
 	public node[] children = new node[8];        //  3  X  4
-                                               //  5  6  7
+                                                 //  5  6  7
 	// starting point constructor                //
 	node(int[] coord){
     pos = new int[2];
