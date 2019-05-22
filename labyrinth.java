@@ -62,13 +62,13 @@ public class labyrinth{
       maze_ucs[x][y] = -1;
 
       if(isFreeUcs(x+1,y)){
-        
+
       }
     }
   }
 
-  private static boolean isFreeUcs(int x, int y){
-    int N = maze_ucs[0].length;
+  private static boolean isFreeUcs(int x, int y){   // method returns true if the cell we are about to go is empty and false if not
+    int N = maze_ucs[0].length;                     // also checks if x and y are in bounds
     if((x < N && x >= 0) && (y < N && y >= 0) && maze_ucs[x][y] == 1){
       return true;
     }
