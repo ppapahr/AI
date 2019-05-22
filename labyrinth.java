@@ -7,6 +7,7 @@ public class labyrinth{
   // 1 in mazes means available cell
   // 0 means unavailable cell
   // -1 means cell has already been accessed
+  public node final_ucs;
   public int[][] maze_ucs;
   public int[][] maze_Astar;
   public int ucs_cost;
@@ -60,6 +61,10 @@ public class labyrinth{
       int x = temp.pos[0];
       int y = temp.pos[1];
       maze_ucs[x][y] = -1;
+
+      if((x==G1[0] && y==G1[1]) || (x==G2[0] && y==G2[1])){
+        final_ucs.copy(temp);
+      }
 
       if(isFreeUcs(x+1,y)){
         node child = new node(temp, [x+1,y]);
@@ -377,6 +382,12 @@ public class node{
 		return;
 	}
 
+  public void copy(node t){
+    this.pos[0] = t.pos[0];
+    this.pos[1] = t.pos[1];
+    this.parent = t.parent;
+    this.children = t.children;
+  }
 
 }
 
