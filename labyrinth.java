@@ -12,6 +12,7 @@ public class labyrinth{
   public int[][] maze_Astar;
   public int ucs_cost;
   public int Astar_cost;
+  public int Astar_expansion;
   public int[] S;
   public int[] G1;
   public int[] G2;
@@ -157,7 +158,9 @@ public class labyrinth{
   // A*
 
   public void aStar(){
-
+	
+	Astar_expansion = 0;
+	
 	//int[] start = S;
 	//int[] end1 = e1;
 	//int[] end2 = e2;
@@ -265,7 +268,9 @@ public class labyrinth{
 
 
 		// call h(s) with search field list
-
+		
+		
+		Astar_expansion ++;
 
 
 
