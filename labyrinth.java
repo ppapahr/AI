@@ -8,10 +8,11 @@ public class labyrinth{
   // 0 means unavailable cell
   // -1 means cell has already been accessed
   public node final_ucs;
+  public node final_Astar;
   public int[][] maze_ucs;
   public int[][] maze_Astar;
-  public int ucs_cost;
-  public int Astar_cost;
+  public int ucs_cost = 0;
+  public int Astar_cost = 0;
   public int Astar_expansion;
   public int[] S;
   public int[] G1;
@@ -121,6 +122,20 @@ public class labyrinth{
     return;
   }
 
+  public void calculateCost(){
+    node t = final_ucs;
+    while(t.parent != null){
+      ucs_cost += 1;
+      t = t.parent;
+    }
+    t = final_Astar;
+    while(t.parent != null){
+      Astar_cost += 1;
+      t = t.parent;
+    }
+    return;
+  }
+
   private static boolean isFreeUcs(int x, int y){   // method returns true if the cell we are about to go is empty and false if not
     int N = maze_ucs[0].length;                     // also checks if x and y are in bounds
     if((x < N && x >= 0) && (y < N && y >= 0) && maze_ucs[x][y] == 1){
@@ -158,9 +173,9 @@ public class labyrinth{
   // A*
 
   public void aStar(){
-	
+
 	Astar_expansion = 0;
-	
+
 	//int[] start = S;
 	//int[] end1 = e1;
 	//int[] end2 = e2;
@@ -268,8 +283,8 @@ public class labyrinth{
 
 
 		check = eu(searchField);
-		
-		
+
+
 		Astar_expansion ++;
 
 
@@ -278,7 +293,7 @@ public class labyrinth{
 
 	// the node check will be the closest to one of the end points
 
-	
+
 
 
 
@@ -290,7 +305,7 @@ public class labyrinth{
 
   // finder
   // needs to get fixed only calculates distance between end point and search field
-  
+
   private node eu(arrayList<node> searchField){
 
 	  node chosenOne;
