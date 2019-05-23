@@ -131,12 +131,25 @@ public class labyrinth{
 
   public void calculateCost(){
     node t = final_ucs;
+    if(t.parent == null){
+      ucs_path.add(t.pos[0]);
+      ucs_path.add(t.pos[1]);
+    }
     while(t.parent != null){
+      ucs_path.add(t.pos[0]);
+      ucs_path.add(t.pos[1]);
       ucs_cost += 1;
       t = t.parent;
     }
+
     t = final_Astar;
+    if(t.parent == null){
+      Astar_path.add(t.pos[0]);
+      Astar_path.add(t.pos[1]);
+    }
     while(t.parent != null){
+      Astar_path.add(t.pos[0]);
+      Astar_path.add(t.pos[1]);
       Astar_cost += 1;
       t = t.parent;
     }
