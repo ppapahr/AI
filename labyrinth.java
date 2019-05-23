@@ -36,10 +36,6 @@ public class labyrinth{
     for(int i=0; i<N; i++){
       for(int j=0; j<N; j++){
         r = rand.nextDouble();
-
-
-		// 1 is empty and 0 is blocked, later -1 will mean that the search function has passed from that possision.
-
         if(r <= p){
           maze_ucs[i][j] = 1;
           maze_Astar[i][j] = 1;
@@ -51,8 +47,6 @@ public class labyrinth{
       }
     }
   }
-
-
 
   // BFS
 
