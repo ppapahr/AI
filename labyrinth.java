@@ -57,6 +57,7 @@ public class labyrinth{
   // BFS
 
   public boolean ucsSolve(){
+    ucs_expansion = 0;
     Queue<node> bfsq = new Queue<node>();
     int N = maze_ucs[0].length;
     node start = new node(S);
@@ -126,7 +127,12 @@ public class labyrinth{
     return false;
   }
 
-  public void printPath(){
+  public void printPathUcs(){
+
+  }
+
+  public void printPathAstar(){
+    
   }
 
   public void calculateCost(){
