@@ -14,6 +14,7 @@ public class labyrinth{
   public int ucs_cost = 0;
   public int Astar_cost = 0;
   public int Astar_expansion;
+  public int ucs_expansion;
   public int[] S;
   public int[] G1;
   public int[] G2;
@@ -117,6 +118,7 @@ public class labyrinth{
         temp.children[0] = child;
         bfsq.put(child);
       }
+      ucs_expansion += 1;
     }
     System.out.println("no exit found");
     return;
