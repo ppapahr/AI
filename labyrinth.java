@@ -184,7 +184,7 @@ public class labyrinth{
       t = t.parent;
     }
 
-    t = final_Astar;
+    /*t = final_Astar;
     if(t.parent == null){
       Astar_path.add(t.pos[0]);
       Astar_path.add(t.pos[1]);
@@ -194,7 +194,7 @@ public class labyrinth{
       Astar_path.add(t.pos[1]);
       Astar_cost += 1;
       t = t.parent;
-    }
+    }*/
     return;
   }
 
@@ -362,15 +362,32 @@ public class labyrinth{
 
   }
 
-
+	
+	public int costCalc(node n){
+		
+		int cost = 0;
+		node t = n;
+		while(t.parent != null){
+			
+			cost ++;
+			t = t.parent;
+			
+		}
+		
+		return cost;
+		
+	}
+	
 
 
   // finder
-  // needs to get fixed only calculates distance between end point and search field
 
-  private node eu(arrayList<node> searchField){
+  private node eu(arrayList<node> searchField, node n){
 
 	  node chosenOne;
+	  
+	  // calculate the cost up until the node
+	  double cost = (double) costCalc(n) + 1; // need to check casting to double
 
 	if(searchField.isEmpty()){
 		println("searchField is empty");
@@ -381,26 +398,26 @@ public class labyrinth{
 
 	if(this.distance(searchField.get(0).pos, G1) < this.distance(searchField.get(0).pos, G2)){
 
-		double min = this.distance(searchField.get(0).pos, G2);
+		double min = this.distance(searchField.get(0).pos, G2) + cost;
 
 	}
 	else{
 
-		double min = this.distance(searchField.get(0).pos, G1);
+		double min = this.distance(searchField.get(0).pos, G1) + cost;
 
 	}
 	chosenOne = searchField.get(0);
 
 	for(int i = 1, i < searchField.size(), i ++){
 
-		if(min > this.distance(searchField.get(i).pos, G1)){
+		if(min > (this.distance(searchField.get(i).pos, G1) + cost)){
 
-			min = this.distance(searchField.get(i).pos, G1);
+			min = this.distance(searchField.get(i).pos, G1) + cost;
 			chosenOne = searchField.get(i);
 		}
-		if(min > this.distance(searchField.get(i).pos, G2)){
+		if(min > (this.distance(searchField.get(i).pos, G2) + cost)){
 
-			min = this.distance(searchField.get(i).pos, G2);
+			min = this.distance(searchField.get(i).pos, G2 + cost);
 			chosenOne = searchField.get(i);
 		}
 
