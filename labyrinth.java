@@ -124,6 +124,10 @@ public class labyrinth{
     return;
   }
 
+  public void printPath(){
+    
+  }
+
   public void calculateCost(){
     node t = final_ucs;
     while(t.parent != null){
