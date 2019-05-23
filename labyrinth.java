@@ -7,6 +7,8 @@ public class labyrinth{
   // 1 in mazes means available cell
   // 0 means unavailable cell
   // -1 means cell has already been accessed
+  public ArrayList<Integer> ucs_path = new ArrayList<Integer>();
+  public ArrayList<Integer> Astar_path = new ArrayList<Integer>();
   public node final_ucs;
   public node final_Astar;
   public int[][] maze_ucs;
@@ -54,7 +56,7 @@ public class labyrinth{
 
   // BFS
 
-  public void ucsSolve(){
+  public boolean ucsSolve(){
     Queue<node> bfsq = new Queue<node>();
     int N = maze_ucs[0].length;
     node start = new node(S);
@@ -68,7 +70,7 @@ public class labyrinth{
       if((x==G1[0] && y==G1[1]) || (x==G2[0] && y==G2[1])){
         final_ucs.copy(temp);
         System.out.println("exit found");
-        return;
+        return true;
       }
 
       if(isFreeUcs(x+1,y)){
@@ -121,11 +123,10 @@ public class labyrinth{
       ucs_expansion += 1;
     }
     System.out.println("no exit found");
-    return;
+    return false;
   }
 
   public void printPath(){
-
   }
 
   public void calculateCost(){
