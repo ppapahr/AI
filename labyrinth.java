@@ -184,7 +184,7 @@ public class labyrinth{
       t = t.parent;
     }
 
-    /*t = final_Astar;
+    t = final_Astar;
     if(t.parent == null){
       Astar_path.add(t.pos[0]);
       Astar_path.add(t.pos[1]);
@@ -194,7 +194,7 @@ public class labyrinth{
       Astar_path.add(t.pos[1]);
       Astar_cost += 1;
       t = t.parent;
-    }*/
+    }
     return;
   }
 
@@ -354,16 +354,17 @@ public class labyrinth{
 	}
 
 	// the node check will be the closest to one of the end points
+	
+	final_Astar = check;
 
-
-
+	
 
 
 
   }
 
-	
-	public int costCalc(node n){
+	// cost calculator for the eu function
+	public int euCost(node n){
 		
 		int cost = 0;
 		node t = n;
