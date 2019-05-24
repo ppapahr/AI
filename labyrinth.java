@@ -253,12 +253,12 @@ public class labyrinth{
 		// checking if I 've reached an end point
 		if(check.pos[0] == G1[0] && check.pos[1] == G1[1]){
 
-			println("reached end point 1"); // debug message
+			System.out.println("reached end point 1"); // debug message
 			break;
 		}
 		if(check.pos[0] == G2[0] && check.pos[1] == G2[1]){
 
-			println("reached end point 2"); // debug message
+			System.out.println("reached end point 2"); // debug message
 			break;
 		}
 
@@ -382,7 +382,7 @@ public class labyrinth{
 	  double cost = (double) costCalc(n) + 1; // need to check casting to double
 
 	if(searchField.isEmpty()){
-		println("searchField is empty");
+		System.out.println("searchField is empty");
 		return;
 	}
 
@@ -447,7 +447,11 @@ public class labyrinth{
 		int[] g1;
 		int[] g2;
 		
-		
+		System.out.println("type the size of the maze.");
+		System.out.println("type the chance for passable/blocked");
+		System.out.println("type the possition of the start");
+		System.out.println("type the possition of the end 1");
+		System.out.println("type the possition of the end 2");
 		
 	}
 
