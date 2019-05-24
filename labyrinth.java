@@ -49,7 +49,6 @@ public class labyrinth{
   }
 
   // BFS
-
   public boolean ucsSolve(){
     ucs_expansion = 0;
     Queue<node> bfsq = new Queue<node>();
@@ -349,17 +348,11 @@ public class labyrinth{
 
 		Astar_expansion ++;
 
-
-
 	}
 
 	// the node check will be the closest to one of the end points
 	
 	final_Astar = check;
-
-	
-
-
 
   }
 
@@ -380,9 +373,7 @@ public class labyrinth{
 	}
 	
 
-
   // finder
-
   private node eu(arrayList<node> searchField, node n){
 
 	  node chosenOne;
@@ -426,7 +417,6 @@ public class labyrinth{
 
 	return chosenOne;
 
-
   }
 
 
@@ -448,6 +438,18 @@ public class labyrinth{
 
 
   // main
+  
+	public static void main(String[] args){
+		
+		int size;
+		int chance;
+		int[] start;
+		int[] g1;
+		int[] g2;
+		
+		
+		
+	}
 
 
 
