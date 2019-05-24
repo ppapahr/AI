@@ -442,6 +442,13 @@ public class labyrinth{
 
 	  return Math.sqrt((double)d); //need to check the casting to double
   }
+  
+
+
+
+
+  // main
+
 
 
 
