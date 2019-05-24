@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 import java.lang.Math;
+import java.util.Scanner;
 
 
 public class labyrinth{
@@ -441,6 +442,7 @@ public class labyrinth{
   
 	public static void main(String[] args){
 		
+		Scanner input = new Scanner(System.in);
 		int size;
 		int chance;
 		int[] start;
@@ -448,10 +450,18 @@ public class labyrinth{
 		int[] g2;
 		
 		System.out.println("type the size of the maze.");
+		size = input.nextInt();
 		System.out.println("type the chance for passable/blocked");
+		chance = input.nextInt();
 		System.out.println("type the possition of the start");
+		start[0] = input.nextInt();
+		start[1] = input.nextInt();
 		System.out.println("type the possition of the end 1");
+		end1[0] = input.nextInt();
+		end1[1] = input.nextInt();
 		System.out.println("type the possition of the end 2");
+		end2[0] = input.nextInt();
+		end2[1] = input.nextInt();
 		
 	}
 
