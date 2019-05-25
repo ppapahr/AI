@@ -599,7 +599,14 @@ public int euCost(node n){
     System.out.println("Ucs solution: \n");
     System.out.println("\n");
     problem.printPathUcs();
-    System.out.println("hi");
+    System.out.println("UCS cost: " + problem.ucs_cost);
+    System.out.println("A* cost: " + problem.Astar_cost);
+    System.out.println("UCS expansion: " + problem.ucs_expansion);
+    System.out.println("A* expansion: " + problem.Astar_expansion);
+    
+    
+    
+    
 	}
 
 
