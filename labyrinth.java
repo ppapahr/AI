@@ -199,7 +199,7 @@ public class labyrinth{
   }
 
   private static boolean isFreeUcs(int x, int y){   // method returns true if the cell we are about to go is empty and false if not
-    int N = maze_ucs[0].length();                     // also checks if x and y are in bounds
+    int N = maze_ucs[0].length;                     // also checks if x and y are in bounds
     if((x < N && x >= 0) && (y < N && y >= 0) && maze_ucs[x][y] == 1){
       return true;
     }
@@ -352,33 +352,33 @@ public class labyrinth{
 	}
 
 	// the node check will be the closest to one of the end points
-	
+
 	final_Astar = check;
 
   }
 
 // cost calculator for the eu function
 public int euCost(node n){
-		
+
 		int cost = 0;
 		node t = n;
 		while(t.parent != null){
-			
+
 			cost ++;
 			t = t.parent;
-			
+
 		}
-		
+
 		return cost;
-		
+
 	}
-	
+
 
   // finder
   private node eu(arrayList<node> searchField, node n){
 
 	  node chosenOne;
-	  
+
 	  // calculate the cost up until the node
 	  double cost = (double) euCost(n) + 1; // need to check casting to double
 
@@ -433,22 +433,22 @@ public int euCost(node n){
 
 	  return Math.sqrt((double)d); //need to check the casting to double
   }
-  
+
 
 
 
 
   // main
-  
+
 	public static void main(String[] args){
-		
+
 		Scanner input = new Scanner(System.in);
 		int size;
 		int chance;
 		int[] start;
 		int[] g1;
 		int[] g2;
-		
+
 		System.out.println("type the size of the maze.");
 		size = input.nextInt();
 		System.out.println("type the chance for passable/blocked");
@@ -462,7 +462,7 @@ public int euCost(node n){
 		System.out.println("type the possition of the end 2");
 		g2[0] = input.nextInt();
 		g2[1] = input.nextInt();
-		
+
 	}
 
 
