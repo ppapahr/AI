@@ -28,7 +28,7 @@ public class labyrinth{
 
     G1[0] = e1[0];
     G1[1] = e1[1];
-    
+
     G2[0] = e2[0];
     G2[1] = e2[1];
     return;
@@ -308,9 +308,9 @@ public class labyrinth{
 			check.children[0] = child;
 
 		}
-		
-		
-		
+
+
+
 
 		if(this.isFreeAstar(x-1,y)){
 			int[] temparr = new int[2];
@@ -501,7 +501,7 @@ public int euCost(node n){
 
 
 		int size;
-		int chance;
+		double probability;
 		int[] start = new int[2];
 		int[] g1 = new int[2];
 		int[] g2 = new int[2];
@@ -511,7 +511,7 @@ public int euCost(node n){
 		System.out.println("type the size of the maze.");
 		size = input.nextInt();
 		System.out.println("type the chance for passable/blocked");
-		chance = input.nextInt();
+		probability = input.nextInt();
 		System.out.println("type the possition of the start");
 		start[0] = input.nextInt();
 		start[1] = input.nextInt();
@@ -522,6 +522,11 @@ public int euCost(node n){
 		g2[0] = input.nextInt();
 		g2[1] = input.nextInt();
 
+    labyrinth problem = new labyrinth();
+    problem.setPoints(start, g1, g2);
+    problem.generateMaze(size, probability);
+    problem.printMaze();
+    
 	}
 
 
