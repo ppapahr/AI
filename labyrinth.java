@@ -300,29 +300,34 @@ public class labyrinth{
 
 	node check = new node(S);
 	maze_Astar[S[0]][S[1]] = -1;
+	node fin;
 
 	while(true){
 
+		int x = check.pos[0];
+		int y = check.pos[1];
+		
+		// mark the spot as visited
+		maze_Astar[x][y] = -1;
+		
 		// checking if I have reached an end point
 		if(check.pos[0] == G1[0] && check.pos[1] == G1[1]){
 
 			System.out.println("reached end point 1 \n "); // debug message
+			fin = new node(check, G1);
 			break;
 		}
 		if(check.pos[0] == G2[0] && check.pos[1] == G2[1]){
 
 			System.out.println("reached end point 2 \n"); // debug message
+			fin = new node(check, G2);
 			break;
 		}
 
 		// adding the children of the checked node to the search field and to its children list
 		// need to check how persistant the check node will be
 
-		int x = check.pos[0];
-		int y = check.pos[1];
 
-		// mark the spot as visited
-		maze_Astar[x][y] = -1;
 		//System.out.println("visited a spot"+ x + y);
 		if(this.isFreeAstar(x-1,y-1)){
 			int[] temparr = new int[2];
@@ -453,13 +458,15 @@ public class labyrinth{
 		check = eu(searchField);
 		searchField.remove(check);
 
+
+		
 		Astar_expansion ++;
 
 	}
 
 	// the node check will be the closest to one of the end points
 
-	final_Astar = check;
+	final_Astar = fin;
 	return true;
 
   }
@@ -592,6 +599,7 @@ public int euCost(node n){
     System.out.println("Ucs solution: \n");
     System.out.println("\n");
     problem.printPathUcs();
+    System.out.println("hi");
 	}
 
 
