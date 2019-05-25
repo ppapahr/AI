@@ -24,7 +24,7 @@ public class labyrinth{
 
   public void setPoints(int[] start, int[] e1, int[] e2){
     S = start;
-    G1 = e1
+    G1 = e1;
     G2 = e2;
     return;
   }
@@ -127,7 +127,7 @@ public class labyrinth{
     for(int i=0; i<N; i++){
       for(int j=0; j<N; j++){
         if(maze_ucs[i][j] == -1){
-          for(int k=0; k<ucs_path.length(); k += 2){
+          for(int k=0; k<ucs_path.size(); k += 2){
             if(i == ucs_path.get(k) && j == ucs_path.get(k+1)){
               st += "*";
               break;
@@ -152,7 +152,7 @@ public class labyrinth{
     for(int i=0; i<N; i++){
       for(int j=0; j<N; j++){
         if(maze_Astar[i][j] == -1){
-          for(int k=0; k<Astar_path.length(); k += 2){
+          for(int k=0; k<Astar_path.size(); k += 2){
             if(i == Astar_path.get(k) && j == Astar_path.get(k+1)){
               st += "*";
               break;
@@ -199,7 +199,7 @@ public class labyrinth{
   }
 
   private static boolean isFreeUcs(int x, int y){   // method returns true if the cell we are about to go is empty and false if not
-    int N = maze_ucs[0].length;                     // also checks if x and y are in bounds
+    int N = maze_ucs[0].length();                     // also checks if x and y are in bounds
     if((x < N && x >= 0) && (y < N && y >= 0) && maze_ucs[x][y] == 1){
       return true;
     }
@@ -251,7 +251,7 @@ public class labyrinth{
 
 	while(true){ // possible syntax error
 
-		// checking if I 've reached an end point
+		// checking if I have reached an end point
 		if(check.pos[0] == G1[0] && check.pos[1] == G1[1]){
 
 			System.out.println("reached end point 1"); // debug message
@@ -325,7 +325,7 @@ public class labyrinth{
 
 		// check if the node does not have any children (dead end)
 		int dead = 1;
-		for(int i = 0, i < 8, i++){
+		for(int i = 0; i < 8; i++){
 
 			if(check.children[i] != null){ // check if the node list initializes with "null" in all possitions
 				dead = 0;                  // if the parents have shallow pointers to children then the program wont execute this line
@@ -357,8 +357,8 @@ public class labyrinth{
 
   }
 
-	// cost calculator for the eu function
-	public int euCost(node n){
+// cost calculator for the eu function
+public int euCost(node n){
 		
 		int cost = 0;
 		node t = n;
@@ -380,11 +380,11 @@ public class labyrinth{
 	  node chosenOne;
 	  
 	  // calculate the cost up until the node
-	  double cost = (double) costCalc(n) + 1; // need to check casting to double
+	  double cost = (double) euCost(n) + 1; // need to check casting to double
 
 	if(searchField.isEmpty()){
 		System.out.println("searchField is empty");
-		return;
+		return null;
 	}
 
 	// there is no need to check for empty spots in the arrayList if items are removed with their index id, the items are shifted to cover the space
@@ -401,7 +401,7 @@ public class labyrinth{
 	}
 	chosenOne = searchField.get(0);
 
-	for(int i = 1, i < searchField.size(), i ++){
+	for(int i = 1; i < searchField.size(); i ++){
 
 		if(min > (this.distance(searchField.get(i).pos, G1) + cost)){
 
@@ -427,8 +427,8 @@ public class labyrinth{
 	  int d;
 	  int x;
 	  int y;
-	  x = abs(a[0] - b[0]);
-	  y = abs(a[1] - b[1]);
+	  x = Math.abs(a[0] - b[0]);
+	  y = Math.abs(a[1] - b[1]);
 	  d = (x*x) + (y*y);
 
 	  return Math.sqrt((double)d); //need to check the casting to double
@@ -457,11 +457,11 @@ public class labyrinth{
 		start[0] = input.nextInt();
 		start[1] = input.nextInt();
 		System.out.println("type the possition of the end 1");
-		end1[0] = input.nextInt();
-		end1[1] = input.nextInt();
+		g1[0] = input.nextInt();
+		g1[1] = input.nextInt();
 		System.out.println("type the possition of the end 2");
-		end2[0] = input.nextInt();
-		end2[1] = input.nextInt();
+		g2[0] = input.nextInt();
+		g2[1] = input.nextInt();
 		
 	}
 
