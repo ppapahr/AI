@@ -61,6 +61,12 @@ public class labyrinth{
     int N = maze_ucs[0].length;
     node start = new node(S);
     bfsq.put(start);
+    int a = start.pos[0];
+    int b = start.pos[1];
+    if(maze_ucs[a][b] == 0){
+      System.out.println("first cell is blocked, cannot begin");
+      return false;
+    }
     while(!bfsq.isEmpty()){
       node temp = bfsq.get();
       int x = temp.pos[0];
@@ -213,7 +219,7 @@ public class labyrinth{
       t = t.parent;
     }
 
-    t = final_Astar;
+    /* t = final_Astar;
     if(t.parent == null){
       Astar_path.add(t.pos[0]);
       Astar_path.add(t.pos[1]);
@@ -223,7 +229,7 @@ public class labyrinth{
       Astar_path.add(t.pos[1]);
       Astar_cost += 1;
       t = t.parent;
-    }
+    } */
     return;
   }
 
@@ -297,7 +303,7 @@ public class labyrinth{
 
 		int x = check.pos[0];
 		int y = check.pos[1];
-		
+
 		// mark the spot as visited
 		maze_Astar[x][y] = -1;
 		if(this.isFreeAstar(x-1,y-1)){
@@ -530,6 +536,8 @@ public int euCost(node n){
     problem.generateMaze(size, probability);
     problem.printMaze();
     problem.ucsSolve();
+    problem.calculateCost();
+    problem.printPathUcs();
 	}
 
 
