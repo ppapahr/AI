@@ -318,15 +318,17 @@ public class labyrinth{
 
 		// mark the spot as visited
 		maze_Astar[x][y] = -1;
-		// System.out.println("visited a spot"+ x + y);
+		System.out.println("visited a spot"+ x + y);
 		if(this.isFreeAstar(x-1,y-1)){
 			//n = new node(check, [x-1,y-1]);
 			int[] temparr = new int[2];
 	        temparr[0] = x-1;
 	        temparr[1] = y-1;
 	        node child = new node(check, temparr);
-			searchField.add(child);
-			check.children[0] = child;
+	        if(!searchField.contains(child)) {
+	        	searchField.add(child);
+				check.children[0] = child;
+	        }
 
 		}
 
@@ -338,8 +340,10 @@ public class labyrinth{
 	        temparr[0] = x;
 	        temparr[1] = y-1;
 	        node child = new node(check, temparr);
-			searchField.add(child);
-			check.children[1] = child;
+	        if(!searchField.contains(child)) {
+	        	searchField.add(child);
+				check.children[0] = child;
+	        }
 
 		}
 
@@ -348,8 +352,10 @@ public class labyrinth{
 	        temparr[0] = x+1;
 	        temparr[1] = y-1;
 	        node child = new node(check, temparr);
-			searchField.add(child);
-			check.children[2] = child;
+	        if(!searchField.contains(child)) {
+	        	searchField.add(child);
+				check.children[0] = child;
+	        }
 
 		}
 
@@ -358,8 +364,10 @@ public class labyrinth{
 	        temparr[0] = x-1;
 	        temparr[1] = y;
 	        node child = new node(check, temparr);
-			searchField.add(child);
-			check.children[3] = child;
+	        if(!searchField.contains(child)) {
+	        	searchField.add(child);
+				check.children[0] = child;
+	        }
 		}
 
 		if(this.isFreeAstar(x,y+1)){
@@ -367,8 +375,10 @@ public class labyrinth{
 	        temparr[0] = x+1;
 	        temparr[1] = y;
 	        node child = new node(check, temparr);
-			searchField.add(child);
-			check.children[4] = child;
+			if(!searchField.contains(child)) {
+	        	searchField.add(child);
+				check.children[0] = child;
+	        }
 
 		}
 
@@ -377,8 +387,10 @@ public class labyrinth{
 	        temparr[0] = x-1;
 	        temparr[1] = y+1;
 	        node child = new node(check, temparr);
-			searchField.add(child);
-			check.children[5] = child;
+	        if(!searchField.contains(child)) {
+	        	searchField.add(child);
+				check.children[0] = child;
+	        }
 		}
 
 		if(this.isFreeAstar(x+1,y)){
@@ -386,8 +398,10 @@ public class labyrinth{
 	        temparr[0] = x;
 	        temparr[1] = y+1;
 	        node child = new node(check, temparr);
-			searchField.add(child);
-			check.children[6] = child;
+	        if(!searchField.contains(child)) {
+	        	searchField.add(child);
+				check.children[0] = child;
+	        };
 		}
 
 		if(this.isFreeAstar(x+1,y+1)){
@@ -395,8 +409,10 @@ public class labyrinth{
 	        temparr[0] = x+1;
 	        temparr[1] = y+1;
 	        node child = new node(check, temparr);
-			searchField.add(child);
-			check.children[7] = child;
+	        if(!searchField.contains(child)) {
+	        	searchField.add(child);
+				check.children[0] = child;
+	        }
 		}
 
 		// check if the node does not have any children (dead end)
@@ -409,6 +425,7 @@ public class labyrinth{
 			}
 
 		}
+		System.out.println("children check done!");
 		if(dead == 1){
 			deadEnds.add(check);
 		}
@@ -432,6 +449,13 @@ public class labyrinth{
 	final_Astar = check;
 
   }
+  
+  
+public boolean exists(node n) {
+	
+	
+	
+}
 
 // cost calculator for the eu function
 public int euCost(node n){
@@ -469,12 +493,12 @@ public int euCost(node n){
 
 	if(this.distance(searchField.get(0).pos, G1) < this.distance(searchField.get(0).pos, G2)){
 
-		min = this.distance(searchField.get(0).pos, G2) + this.euCost(searchField.get(0));
+		min = this.distance(searchField.get(0).pos, G1) + this.euCost(searchField.get(0));
 
 	}
 	else{
 
-		min = this.distance(searchField.get(0).pos, G1) + this.euCost(searchField.get(0));
+		min = this.distance(searchField.get(0).pos, G2) + this.euCost(searchField.get(0));
 
 	}
 	chosenOne = searchField.get(0);
@@ -549,7 +573,7 @@ public int euCost(node n){
     problem.generateMaze(size, probability);
     problem.printMaze();
     problem.aStar();
-    problem.ucsSolve()
+    problem.ucsSolve();
     problem.calculateCost();
     System.out.println("Astar solution: \n");
     System.out.println("\n");
