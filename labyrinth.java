@@ -18,14 +18,19 @@ public class labyrinth{
   public int Astar_cost = 0;
   public int Astar_expansion;
   public int ucs_expansion;
-  public int[] S;
-  public int[] G1;
-  public int[] G2;
+  public int[] S = new int[2];
+  public int[] G1 = new int[2];
+  public int[] G2 = new int[2];
 
   public void setPoints(int[] start, int[] e1, int[] e2){
-    S = start;
-    G1 = e1;
-    G2 = e2;
+    S[0] = start[0];
+    S[1] = start[1];
+
+    G1[0] = e1[0];
+    G1[1] = e1[1];
+    
+    G2[0] = e2[0];
+    G2[1] = e2[1];
     return;
   }
 
@@ -440,7 +445,7 @@ public int euCost(node n){
 	// there is no need to check for empty spots in the arrayList if items are removed with their index id, the items are shifted to cover the space
 
 	double min;
-	
+
 	if(this.distance(searchField.get(0).pos, G1) < this.distance(searchField.get(0).pos, G2)){
 
 		min = this.distance(searchField.get(0).pos, G2) + this.euCost(searchField.get(0));
