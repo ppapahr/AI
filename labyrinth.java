@@ -18,9 +18,9 @@ public class labyrinth{
   public int Astar_cost = 0;
   public int Astar_expansion;
   public int ucs_expansion;
-  public int[] S = new int[2];
-  public int[] G1 = new int[2];
-  public int[] G2 = new int[2];
+  public int[] S;
+  public int[] G1;
+  public int[] G2;
 
   public void setPoints(int[] start, int[] e1, int[] e2){
     S = start;
