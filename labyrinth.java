@@ -189,15 +189,21 @@ public class labyrinth{
 
   public void printPathAstar(){
     String st = "";
+    int check = 0;
     int N = maze_Astar[0].length;
     for(int i=0; i<N; i++){
       for(int j=0; j<N; j++){
         if(maze_Astar[i][j] == -1){
+          check = 0;
           for(int k=0; k<Astar_path.size(); k += 2){
             if(i == Astar_path.get(k) && j == Astar_path.get(k+1)){
+              check ++;
               st += "*";
               break;
             }
+          }
+          if(check == 0){
+            st += "1";
           }
         }
         else if(maze_Astar[i][j] == 1){
@@ -214,7 +220,7 @@ public class labyrinth{
 
   public void calculateCost(){
     node t = final_ucs;
-    if(t.parent == null){
+    /*if(t.parent == null){
       ucs_path.add(t.pos[0]);
       ucs_path.add(t.pos[1]);
     }
@@ -223,9 +229,9 @@ public class labyrinth{
       ucs_path.add(t.pos[1]);
       ucs_cost += 1;
       t = t.parent;
-    }
+    } */
 
-    /* t = final_Astar;
+    t = final_Astar;
     if(t.parent == null){
       Astar_path.add(t.pos[0]);
       Astar_path.add(t.pos[1]);
@@ -235,7 +241,7 @@ public class labyrinth{
       Astar_path.add(t.pos[1]);
       Astar_cost += 1;
       t = t.parent;
-    } */
+    }
     return;
   }
 
@@ -541,9 +547,9 @@ public int euCost(node n){
     problem.setPoints(start, g1, g2);
     problem.generateMaze(size, probability);
     problem.printMaze();
-    problem.ucsSolve();
+    problem.aStar();
     problem.calculateCost();
-    problem.printPathUcs();
+    problem.printPathAstar();
 	}
 
 
