@@ -168,6 +168,7 @@ public class labyrinth{
               break;
             }
           }
+          st += "1";
         }
         else if(maze_ucs[i][j] == 1){
           st += "1";
