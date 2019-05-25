@@ -68,7 +68,7 @@ public class labyrinth{
         return true;
       }
 
-      if(isFreeUcs(x+1,y)){
+      if(this.isFreeUcs(x+1,y)){
         int[] temparr = new int[2];
         temparr[0] = x+1;
         temparr[1] = y;
@@ -77,7 +77,7 @@ public class labyrinth{
         bfsq.put(child);
       }
 
-      if(isFreeUcs(x-1,y)){
+      if(this.isFreeUcs(x-1,y)){
         int[] temparr = new int[2];
         temparr[0] = x-1;
         temparr[1] = y;
@@ -86,7 +86,7 @@ public class labyrinth{
         bfsq.put(child);
       }
 
-      if(isFreeUcs(x,y+1)){
+      if(this.isFreeUcs(x,y+1)){
         int[] temparr = new int[2];
         temparr[0] = x;
         temparr[1] = y+1;
@@ -95,7 +95,7 @@ public class labyrinth{
         bfsq.put(child);
       }
 
-      if(isFreeUcs(x,y-1)){
+      if(this.isFreeUcs(x,y-1)){
         int[] temparr = new int[2];
         temparr[0] = x;
         temparr[1] = y-1;
@@ -104,7 +104,7 @@ public class labyrinth{
         bfsq.put(child);
       }
 
-      if(isFreeUcs(x+1,y+1)){
+      if(this.isFreeUcs(x+1,y+1)){
         int[] temparr = new int[2];
         temparr[0] = x+1;
         temparr[1] = y+1;
@@ -113,7 +113,7 @@ public class labyrinth{
         bfsq.put(child);
       }
 
-      if(isFreeUcs(x+1,y-1)){
+      if(this.isFreeUcs(x+1,y-1)){
         int[] temparr = new int[2];
         temparr[0] = x+1;
         temparr[1] = y-1;
@@ -122,7 +122,7 @@ public class labyrinth{
         bfsq.put(child);
       }
 
-      if(isFreeUcs(x-1,y+1)){
+      if(this.isFreeUcs(x-1,y+1)){
         int[] temparr = new int[2];
         temparr[0] = x-1;
         temparr[1] = y+1;
@@ -131,7 +131,7 @@ public class labyrinth{
         bfsq.put(child);
       }
 
-      if(isFreeUcs(x-1,y-1)){
+      if(this.isFreeUcs(x-1,y-1)){
         int[] temparr = new int[2];
         temparr[0] = x-1;
         temparr[1] = y-1;
@@ -222,7 +222,7 @@ public class labyrinth{
     return;
   }
 
-  private static boolean isFreeUcs(int x, int y){   // method returns true if the cell we are about to go is empty and false if not
+  private boolean isFreeUcs(int x, int y){   // method returns true if the cell we are about to go is empty and false if not
     int N = maze_ucs[0].length;                     // also checks if x and y are in bounds
     if((x < N && x >= 0) && (y < N && y >= 0) && maze_ucs[x][y] == 1){
       return true;
@@ -230,7 +230,7 @@ public class labyrinth{
     return false;
   }
 
-  private static boolean isFreeAstar(int x, int y){
+  private boolean isFreeAstar(int x, int y){
     int N = maze_Astar[0].length;
     if((x < N && x >= 0) && (y < N && y >= 0) && maze_Astar[x][y] == 1){
       return true;
@@ -295,53 +295,53 @@ public class labyrinth{
 
 		node n;
 
-		if(isFreeAstar(x-1,y-1)){
+		if(this.isFreeAstar(x-1,y-1)){
 			n = new node(check, [x-1,y-1]);
 			searchField.add(n);
 			check.children[0] = n;
 
 		}
 
-		if(isFreeAstar(x-1,y)){
+		if(this.isFreeAstar(x-1,y)){
 			n = new node(check, [x,y-1]);
 			searchField.add(n);
 			check.children[1] = n;
 
 		}
 
-		if(isFreeAstar(x-1,y+1)){
+		if(this.isFreeAstar(x-1,y+1)){
 			n = new node(check, [x+1,y-1]);
 			searchField.add(n);
 			check.children[2] = n;
 
 		}
 
-		if(isFreeAstar(x,y-1)){
+		if(this.isFreeAstar(x,y-1)){
 			n = new node(check, [x-1,y]);
 			searchField.add(n);
 			check.children[3] = n;
 		}
 
-		if(isFreeAstar(x,y+1)){
+		if(this.isFreeAstar(x,y+1)){
 			n = new node(check, [x+1,y]);
 			searchField.add(n);
 			check.children[4] = n;
 
 		}
 
-		if(isFreeAstar(x+1,y-1)){
+		if(this.isFreeAstar(x+1,y-1)){
 			n = new node(check, [x-1,y+1]);
 			searchField.add(n);
 			check.children[5] = n;
 		}
 
-		if(isFreeAstar(x+1,y)){
+		if(this.isFreeAstar(x+1,y)){
 			n = new node(check, [x,y+1]);
 			searchField.add(n);
 			check.children[6] = n;
 		}
 
-		if(isFreeAstar(x+1,y+1)){
+		if(this.isFreeAstar(x+1,y+1)){
 			n = new node(check, [x+1,y+1]);
 			searchField.add(n);
 			check.children[7] = n;
@@ -457,24 +457,24 @@ public int euCost(node n){
 
 	  return Math.sqrt((double)d); //need to check the casting to double
   }
-  
+
 
 
 
 
   // main
-  
+
 	public static void main(String[] args){
-		
-		
+
+
 		int size;
 		int chance;
 		int[] start;
 		int[] g1;
 		int[] g2;
-		
+
 		Scanner input = new Scanner(System.in);
-		
+
 		System.out.println("type the size of the maze.");
 		size = input.nextInt();
 		System.out.println("type the chance for passable/blocked");
