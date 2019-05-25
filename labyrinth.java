@@ -449,13 +449,7 @@ public class labyrinth{
 	final_Astar = check;
 
   }
-  
-  
-public boolean exists(node n) {
-	
-	
-	
-}
+
 
 // cost calculator for the eu function
 public int euCost(node n){
