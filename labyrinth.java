@@ -158,17 +158,22 @@ public class labyrinth{
 
   public void printPathUcs(){
     String st = "";
+    int check = 0;
     int N = maze_ucs[0].length;
     for(int i=0; i<N; i++){
       for(int j=0; j<N; j++){
         if(maze_ucs[i][j] == -1){
+          check = 0;
           for(int k=0; k<ucs_path.size(); k += 2){
             if(i == ucs_path.get(k) && j == ucs_path.get(k+1)){
+              check ++;
               st += "*";
               break;
             }
           }
-          st += "1";
+          if(check == 0){
+            st += "1";
+          }
         }
         else if(maze_ucs[i][j] == 1){
           st += "1";
