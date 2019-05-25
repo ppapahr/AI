@@ -511,7 +511,7 @@ public int euCost(node n){
 		System.out.println("type the size of the maze.");
 		size = input.nextInt();
 		System.out.println("type the chance for passable/blocked");
-		probability = input.nextInt();
+		probability = input.nextdouble();
 		System.out.println("type the possition of the start");
 		start[0] = input.nextInt();
 		start[1] = input.nextInt();
