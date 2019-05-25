@@ -415,26 +415,26 @@ public int euCost(node n){
 
 	if(this.distance(searchField.get(0).pos, G1) < this.distance(searchField.get(0).pos, G2)){
 
-		double min = this.distance(searchField.get(0).pos, G2) + cost;
+		double min = this.distance(searchField.get(0).pos, G2) + this.euCost(searchField.get(0));
 
 	}
 	else{
 
-		double min = this.distance(searchField.get(0).pos, G1) + cost;
+		double min = this.distance(searchField.get(0).pos, G1) + this.euCost(searchField.get(0));
 
 	}
 	chosenOne = searchField.get(0);
 
 	for(int i = 1; i < searchField.size(); i ++){
 
-		if(min > (this.distance(searchField.get(i).pos, G1) + cost)){
+		if(min > (this.distance(searchField.get(i).pos, G1) + this.euCost(searchField.get(i)))){
 
-			min = this.distance(searchField.get(i).pos, G1) + cost;
+			min = this.distance(searchField.get(i).pos, G1) + this.euCost(searchField.get(i));
 			chosenOne = searchField.get(i);
 		}
-		if(min > (this.distance(searchField.get(i).pos, G2) + cost)){
+		if(min > (this.distance(searchField.get(i).pos, G2) + this.euCost(searchField.get(i)))){
 
-			min = this.distance(searchField.get(i).pos, G2 + cost);
+			min = this.distance(searchField.get(i).pos, G2) + this.euCost(searchField.get(i));
 			chosenOne = searchField.get(i);
 		}
 
@@ -457,22 +457,24 @@ public int euCost(node n){
 
 	  return Math.sqrt((double)d); //need to check the casting to double
   }
-
+  
 
 
 
 
   // main
-
+  
 	public static void main(String[] args){
-
-		Scanner input = new Scanner(System.in);
+		
+		
 		int size;
 		int chance;
 		int[] start;
 		int[] g1;
 		int[] g2;
-
+		
+		Scanner input = new Scanner(System.in);
+		
 		System.out.println("type the size of the maze.");
 		size = input.nextInt();
 		System.out.println("type the chance for passable/blocked");
@@ -496,7 +498,7 @@ public int euCost(node n){
 
 public class node{
 
-	public int[] pos;                            //  the list possisions
+	public int[] pos;                            //  the list posisions
 	public node parent;                          //  0  1  2
 	public node[] children = new node[8];        //  3  X  4
                                                  //  5  6  7
