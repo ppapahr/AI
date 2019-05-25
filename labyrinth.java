@@ -399,12 +399,12 @@ public int euCost(node n){
 
 
   // finder
-  private node eu(arrayList<node> searchField, node n){
+  private node eu(ArrayList<node> searchField){
 
 	  node chosenOne;
 
-	  // calculate the cost up until the node
-	  double cost = (double) euCost(n) + 1; // need to check casting to double
+	  // calculate the cost up until the node **depricated**
+	  //double cost = (double) euCost(n) + 1; // need to check casting to double
 
 	if(searchField.isEmpty()){
 		System.out.println("searchField is empty");
