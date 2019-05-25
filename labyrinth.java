@@ -300,7 +300,6 @@ public class labyrinth{
 
 	node check = new node(S);
 	maze_Astar[S[0]][S[1]] = -1;
-	node fin;
 
 	while(true){
 
@@ -314,13 +313,11 @@ public class labyrinth{
 		if(check.pos[0] == G1[0] && check.pos[1] == G1[1]){
 
 			System.out.println("reached end point 1 \n "); // debug message
-			fin = new node(check, G1);
 			break;
 		}
 		if(check.pos[0] == G2[0] && check.pos[1] == G2[1]){
 
 			System.out.println("reached end point 2 \n"); // debug message
-			fin = new node(check, G2);
 			break;
 		}
 
@@ -466,7 +463,7 @@ public class labyrinth{
 
 	// the node check will be the closest to one of the end points
 
-	final_Astar = fin;
+	final_Astar = check;
 	return true;
 
   }
