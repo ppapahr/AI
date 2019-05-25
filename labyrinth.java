@@ -549,7 +549,7 @@ public int euCost(node n){
     problem.generateMaze(size, probability);
     problem.printMaze();
     problem.aStar();
-    problem.ucsSolve()
+    problem.ucsSolve();
     problem.calculateCost();
     System.out.println("Astar solution: \n");
     System.out.println("\n");
