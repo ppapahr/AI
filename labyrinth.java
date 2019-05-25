@@ -499,7 +499,6 @@ public int euCost(node n){
 
 	public static void main(String[] args){
 
-
 		int size;
 		double probability;
 		int[] start = new int[2];
@@ -528,7 +527,7 @@ public int euCost(node n){
     problem.setPoints(start, g1, g2);
     problem.generateMaze(size, probability);
     problem.printMaze();
-
+    problem.ucsSolve();
 	}
 
 
