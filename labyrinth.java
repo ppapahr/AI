@@ -413,14 +413,16 @@ public int euCost(node n){
 
 	// there is no need to check for empty spots in the arrayList if items are removed with their index id, the items are shifted to cover the space
 
+	double min;
+	
 	if(this.distance(searchField.get(0).pos, G1) < this.distance(searchField.get(0).pos, G2)){
 
-		double min = this.distance(searchField.get(0).pos, G2) + this.euCost(searchField.get(0));
+		min = this.distance(searchField.get(0).pos, G2) + this.euCost(searchField.get(0));
 
 	}
 	else{
 
-		double min = this.distance(searchField.get(0).pos, G1) + this.euCost(searchField.get(0));
+		min = this.distance(searchField.get(0).pos, G1) + this.euCost(searchField.get(0));
 
 	}
 	chosenOne = searchField.get(0);
@@ -469,9 +471,9 @@ public int euCost(node n){
 
 		int size;
 		int chance;
-		int[] start;
-		int[] g1;
-		int[] g2;
+		int[] start = new int[2];
+		int[] g1 = new int[2];
+		int[] g2 = new int[2];
 
 		Scanner input = new Scanner(System.in);
 
