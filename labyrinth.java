@@ -68,7 +68,7 @@ public class labyrinth{
       maze_ucs[x][y] = -1;
 
       if((x==G1[0] && y==G1[1]) || (x==G2[0] && y==G2[1])){
-        final_ucs.copy(temp);
+        final_ucs = temp;
         System.out.println("exit found");
         return true;
       }
