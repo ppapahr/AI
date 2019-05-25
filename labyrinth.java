@@ -293,58 +293,84 @@ public class labyrinth{
 		int x = check.pos[0];
 		int y = check.pos[1];
 
-		node n;
-
 		if(this.isFreeAstar(x-1,y-1)){
-			n = new node(check, [x-1,y-1]);
-			searchField.add(n);
-			check.children[0] = n;
+			//n = new node(check, [x-1,y-1]);
+			int[] temparr = new int[2];
+	        temparr[0] = x-1;
+	        temparr[1] = y-1;
+	        node child = new node(check, temparr);
+			searchField.add(child);
+			check.children[0] = child;
 
 		}
+		
+		
+		
 
 		if(this.isFreeAstar(x-1,y)){
-			n = new node(check, [x,y-1]);
-			searchField.add(n);
-			check.children[1] = n;
+			int[] temparr = new int[2];
+	        temparr[0] = x;
+	        temparr[1] = y-1;
+	        node child = new node(check, temparr);
+			searchField.add(child);
+			check.children[1] = child;
 
 		}
 
 		if(this.isFreeAstar(x-1,y+1)){
-			n = new node(check, [x+1,y-1]);
-			searchField.add(n);
-			check.children[2] = n;
+			int[] temparr = new int[2];
+	        temparr[0] = x+1;
+	        temparr[1] = y-1;
+	        node child = new node(check, temparr);
+			searchField.add(child);
+			check.children[2] = child;
 
 		}
 
 		if(this.isFreeAstar(x,y-1)){
-			n = new node(check, [x-1,y]);
-			searchField.add(n);
-			check.children[3] = n;
+			int[] temparr = new int[2];
+	        temparr[0] = x-1;
+	        temparr[1] = y;
+	        node child = new node(check, temparr);
+			searchField.add(child);
+			check.children[3] = child;
 		}
 
 		if(this.isFreeAstar(x,y+1)){
-			n = new node(check, [x+1,y]);
-			searchField.add(n);
-			check.children[4] = n;
+			int[] temparr = new int[2];
+	        temparr[0] = x+1;
+	        temparr[1] = y;
+	        node child = new node(check, temparr);
+			searchField.add(child);
+			check.children[4] = child;
 
 		}
 
 		if(this.isFreeAstar(x+1,y-1)){
-			n = new node(check, [x-1,y+1]);
-			searchField.add(n);
-			check.children[5] = n;
+			int[] temparr = new int[2];
+	        temparr[0] = x-1;
+	        temparr[1] = y+1;
+	        node child = new node(check, temparr);
+			searchField.add(child);
+			check.children[5] = child;
 		}
 
 		if(this.isFreeAstar(x+1,y)){
-			n = new node(check, [x,y+1]);
-			searchField.add(n);
-			check.children[6] = n;
+			int[] temparr = new int[2];
+	        temparr[0] = x;
+	        temparr[1] = y+1;
+	        node child = new node(check, temparr);
+			searchField.add(child);
+			check.children[6] = child;
 		}
 
 		if(this.isFreeAstar(x+1,y+1)){
-			n = new node(check, [x+1,y+1]);
-			searchField.add(n);
-			check.children[7] = n;
+			int[] temparr = new int[2];
+	        temparr[0] = x+1;
+	        temparr[1] = y+1;
+	        node child = new node(check, temparr);
+			searchField.add(child);
+			check.children[7] = child;
 		}
 
 		// check if the node does not have any children (dead end)
