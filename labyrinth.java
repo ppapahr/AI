@@ -220,7 +220,7 @@ public class labyrinth{
 
   public void calculateCost(){
     node t = final_ucs;
-    /*if(t.parent == null){
+    if(t.parent == null){
       ucs_path.add(t.pos[0]);
       ucs_path.add(t.pos[1]);
     }
@@ -229,7 +229,7 @@ public class labyrinth{
       ucs_path.add(t.pos[1]);
       ucs_cost += 1;
       t = t.parent;
-    } */
+    }
 
     t = final_Astar;
     if(t.parent == null){
@@ -549,8 +549,14 @@ public int euCost(node n){
     problem.generateMaze(size, probability);
     problem.printMaze();
     problem.aStar();
+    problem.ucsSolve()
     problem.calculateCost();
+    System.out.println("Astar solution: \n");
+    System.out.println("\n");
     problem.printPathAstar();
+    System.out.println("Ucs solution: \n");
+    System.out.println("\n");
+    problem.printPathUcs();
 	}
 
 
