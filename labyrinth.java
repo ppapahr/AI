@@ -230,6 +230,8 @@ public class labyrinth{
       ucs_cost += 1;
       t = t.parent;
     }
+    ucs_path.add(t.pos[0]);
+    ucs_path.add(t.pos[1]);
 
     t = final_Astar;
     if(t.parent == null){
@@ -242,6 +244,8 @@ public class labyrinth{
       Astar_cost += 1;
       t = t.parent;
     }
+    Astar_path.add(t.pos[0]);
+    Astar_path.add(t.pos[1]);
     return;
   }
 
@@ -282,12 +286,12 @@ public class labyrinth{
   // A*
 
   public boolean aStar(){
-	  
+
 	if(maze_Astar[S[0]][S[1]] == 0) {
 		System.out.println("starting point is blocked");
 		return false;
 	}
-	
+
 
 	Astar_expansion = 0;
 
@@ -460,9 +464,9 @@ public class labyrinth{
 
   }
 
-//public boolean exists(int[] a)  
-  
-  
+//public boolean exists(int[] a)
+
+
 
 // cost calculator for the eu function
 public int euCost(node n){
