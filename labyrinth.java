@@ -523,7 +523,7 @@ public int euCost(node n){
 		g2[1] = input.nextInt();
 
     //Start initializing the problem
-    
+
     labyrinth problem = new labyrinth();
     problem.setPoints(start, g1, g2);
     problem.generateMaze(size, probability);
