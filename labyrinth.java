@@ -75,7 +75,7 @@ public class labyrinth{
 
       if((x==G1[0] && y==G1[1]) || (x==G2[0] && y==G2[1])){
         final_ucs = temp;
-        System.out.println("exit found");
+        System.out.println("exit found \n");
         return true;
       }
 
@@ -152,7 +152,7 @@ public class labyrinth{
       }
       ucs_expansion += 1;
     }
-    System.out.println("no exit found");
+    System.out.println("no exit found \n");
     return false;
   }
 
@@ -301,12 +301,12 @@ public class labyrinth{
 		// checking if I have reached an end point
 		if(check.pos[0] == G1[0] && check.pos[1] == G1[1]){
 
-			System.out.println("reached end point 1"); // debug message
+			System.out.println("reached end point 1 \n "); // debug message
 			break;
 		}
 		if(check.pos[0] == G2[0] && check.pos[1] == G2[1]){
 
-			System.out.println("reached end point 2"); // debug message
+			System.out.println("reached end point 2 \n"); // debug message
 			break;
 		}
 
@@ -318,6 +318,7 @@ public class labyrinth{
 
 		// mark the spot as visited
 		maze_Astar[x][y] = -1;
+		// System.out.println("visited a spot"+ x + y);
 		if(this.isFreeAstar(x-1,y-1)){
 			//n = new node(check, [x-1,y-1]);
 			int[] temparr = new int[2];
@@ -420,7 +421,7 @@ public class labyrinth{
 
 
 		check = eu(searchField);
-
+		searchField.remove(check);
 
 		Astar_expansion ++;
 
