@@ -297,7 +297,9 @@ public class labyrinth{
 
 		int x = check.pos[0];
 		int y = check.pos[1];
-
+		
+		// mark the spot as visited
+		maze_Astar[x][y] = -1;
 		if(this.isFreeAstar(x-1,y-1)){
 			//n = new node(check, [x-1,y-1]);
 			int[] temparr = new int[2];
