@@ -281,14 +281,15 @@ public class labyrinth{
 
   // A*
 
-  public void aStar(){
+  public boolean aStar(){
+	  
+	if(maze_Astar[S[0]][S[1]] == 0) {
+		System.out.println("starting point is blocked");
+		return false;
+	}
+	
 
 	Astar_expansion = 0;
-
-	//int[] start = S;
-	//int[] end1 = e1;
-	//int[] end2 = e2;
-	//int[][] matrix = m;
 
 	ArrayList<node> deadEnds = new ArrayList<node>();
 	ArrayList<node> searchField = new ArrayList<node>();
@@ -296,7 +297,7 @@ public class labyrinth{
 	node check = new node(S);
 	maze_Astar[S[0]][S[1]] = -1;
 
-	while(true){ // possible syntax error
+	while(true){
 
 		// checking if I have reached an end point
 		if(check.pos[0] == G1[0] && check.pos[1] == G1[1]){
@@ -318,14 +319,14 @@ public class labyrinth{
 
 		// mark the spot as visited
 		maze_Astar[x][y] = -1;
-		System.out.println("visited a spot"+ x + y);
+		//System.out.println("visited a spot"+ x + y);
 		if(this.isFreeAstar(x-1,y-1)){
-			//n = new node(check, [x-1,y-1]);
 			int[] temparr = new int[2];
 	        temparr[0] = x-1;
 	        temparr[1] = y-1;
 	        node child = new node(check, temparr);
 	        if(!searchField.contains(child)) {
+	        	//System.out.println("child 0 added");
 	        	searchField.add(child);
 				check.children[0] = child;
 	        }
@@ -337,70 +338,76 @@ public class labyrinth{
 
 		if(this.isFreeAstar(x-1,y)){
 			int[] temparr = new int[2];
-	        temparr[0] = x;
-	        temparr[1] = y-1;
+	        temparr[0] = x-1;
+	        temparr[1] = y;
 	        node child = new node(check, temparr);
 	        if(!searchField.contains(child)) {
+	        	//System.out.println("child 1 added");
 	        	searchField.add(child);
-				check.children[0] = child;
+				check.children[1] = child;
 	        }
 
 		}
 
 		if(this.isFreeAstar(x-1,y+1)){
 			int[] temparr = new int[2];
-	        temparr[0] = x+1;
-	        temparr[1] = y-1;
+	        temparr[0] = x-1;
+	        temparr[1] = y+1;
 	        node child = new node(check, temparr);
 	        if(!searchField.contains(child)) {
+	        	//System.out.println("child 2 added");
 	        	searchField.add(child);
-				check.children[0] = child;
+				check.children[2] = child;
 	        }
 
 		}
 
 		if(this.isFreeAstar(x,y-1)){
 			int[] temparr = new int[2];
-	        temparr[0] = x-1;
-	        temparr[1] = y;
+	        temparr[0] = x;
+	        temparr[1] = y-1;
 	        node child = new node(check, temparr);
 	        if(!searchField.contains(child)) {
+	        	//System.out.println("child 3 added");
 	        	searchField.add(child);
-				check.children[0] = child;
+				check.children[3] = child;
 	        }
 		}
 
 		if(this.isFreeAstar(x,y+1)){
 			int[] temparr = new int[2];
-	        temparr[0] = x+1;
-	        temparr[1] = y;
+	        temparr[0] = x;
+	        temparr[1] = y+1;
 	        node child = new node(check, temparr);
 			if(!searchField.contains(child)) {
+				//System.out.println("child 4 added");
 	        	searchField.add(child);
-				check.children[0] = child;
+				check.children[4] = child;
 	        }
 
 		}
 
 		if(this.isFreeAstar(x+1,y-1)){
 			int[] temparr = new int[2];
-	        temparr[0] = x-1;
-	        temparr[1] = y+1;
+	        temparr[0] = x+1;
+	        temparr[1] = y-1;
 	        node child = new node(check, temparr);
 	        if(!searchField.contains(child)) {
+	        	//System.out.println("child 5 added");
 	        	searchField.add(child);
-				check.children[0] = child;
+				check.children[5] = child;
 	        }
 		}
 
 		if(this.isFreeAstar(x+1,y)){
 			int[] temparr = new int[2];
-	        temparr[0] = x;
-	        temparr[1] = y+1;
+	        temparr[0] = x+1;
+	        temparr[1] = y;
 	        node child = new node(check, temparr);
 	        if(!searchField.contains(child)) {
+	        	//System.out.println("child 6 added");
 	        	searchField.add(child);
-				check.children[0] = child;
+				check.children[6] = child;
 	        };
 		}
 
@@ -410,30 +417,32 @@ public class labyrinth{
 	        temparr[1] = y+1;
 	        node child = new node(check, temparr);
 	        if(!searchField.contains(child)) {
+	        	//System.out.println("child 7 added");
 	        	searchField.add(child);
-				check.children[0] = child;
+				check.children[7] = child;
 	        }
 		}
 
 		// check if the node does not have any children (dead end)
 		int dead = 1;
-		for(int i = 0; i < 8; i++){
+		/*for(int i = 0; i < 8; i++){
 
 			if(check.children[i] != null){ // check if the node list initializes with "null" in all possitions
 				dead = 0;                  // if the parents have shallow pointers to children then the program wont execute this line
 
 			}
 
-		}
-		System.out.println("children check done!");
-		if(dead == 1){
-			deadEnds.add(check);
-		}
+		}*/
+		//System.out.println("children check done!");
+//		if(dead == 1){
+//			deadEnds.add(check);
+//		}
 
 
 		if(searchField.isEmpty()){
 			check = eu(deadEnds);
-			break;
+			System.out.println("no exit");
+			return false;
 		}
 
 
@@ -447,9 +456,13 @@ public class labyrinth{
 	// the node check will be the closest to one of the end points
 
 	final_Astar = check;
+	return true;
 
   }
 
+//public boolean exists(int[] a)  
+  
+  
 
 // cost calculator for the eu function
 public int euCost(node n){
@@ -485,7 +498,7 @@ public int euCost(node n){
 
 	double min;
 
-	if(this.distance(searchField.get(0).pos, G1) < this.distance(searchField.get(0).pos, G2)){
+	if( ( this.distance(searchField.get(0).pos, G1) + this.euCost(searchField.get(0)) ) < ( this.distance(searchField.get(0).pos, G2) + this.euCost(searchField.get(0)) ) ){
 
 		min = this.distance(searchField.get(0).pos, G1) + this.euCost(searchField.get(0));
 
