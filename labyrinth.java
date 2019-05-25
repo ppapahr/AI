@@ -536,7 +536,7 @@ public int euCost(node n){
 
 }
 
-private class node{
+class node{
 
 	public int[] pos;                            //  the list posisions
 	public node parent;                          //  0  1  2
@@ -589,7 +589,7 @@ private class node{
 
 
 // implementation of a FIFO queue
-private class Queue<Item>
+class Queue<Item>
 {
 	private class Node
 	{
