@@ -69,49 +69,73 @@ public class labyrinth{
       }
 
       if(isFreeUcs(x+1,y)){
-        node child = new node(temp, [x+1,y]);
+        int[] temparr = new int[2];
+        temparr[0] = x+1;
+        temparr[1] = y;
+        node child = new node(temp, temparr);
         temp.children[6] = child;
         bfsq.put(child);
       }
 
       if(isFreeUcs(x-1,y)){
-        node child = new node(temp, [x-1,y]);
+        int[] temparr = new int[2];
+        temparr[0] = x-1;
+        temparr[1] = y;
+        node child = new node(temp, temparr);
         temp.children[1] = child;
         bfsq.put(child);
       }
 
       if(isFreeUcs(x,y+1)){
-        node child = new node(temp, [x,y+1]);
+        int[] temparr = new int[2];
+        temparr[0] = x;
+        temparr[1] = y+1;
+        node child = new node(temp, temparr);
         temp.children[4] = child;
         bfsq.put(child);
       }
 
       if(isFreeUcs(x,y-1)){
-        node child = new node(temp, [x,y-1]);
+        int[] temparr = new int[2];
+        temparr[0] = x;
+        temparr[1] = y-1;
+        node child = new node(temp, temparr);
         temp.children[3] = child;
         bfsq.put(child);
       }
 
       if(isFreeUcs(x+1,y+1)){
-        node child = new node(temp, [x+1,y+1]);
+        int[] temparr = new int[2];
+        temparr[0] = x+1;
+        temparr[1] = y+1;
+        node child = new node(temp, temparr);
         temp.children[7] = child;
         bfsq.put(child);
       }
 
       if(isFreeUcs(x+1,y-1)){
-        node child = new node(temp, [x+1,y-1]);
+        int[] temparr = new int[2];
+        temparr[0] = x+1;
+        temparr[1] = y-1;
+        node child = new node(temp, temparr);
         temp.children[5] = child;
         bfsq.put(child);
       }
 
       if(isFreeUcs(x-1,y+1)){
-        node child = new node(temp, [x-1,y+1]);
+        int[] temparr = new int[2];
+        temparr[0] = x-1;
+        temparr[1] = y+1;
+        node child = new node(temp, temparr);
         temp.children[2] = child;
         bfsq.put(child);
       }
 
       if(isFreeUcs(x-1,y-1)){
-        node child = new node(temp, [x-1,y-1]);
+        int[] temparr = new int[2];
+        temparr[0] = x-1;
+        temparr[1] = y-1;
+        node child = new node(temp, temparr);
         temp.children[0] = child;
         bfsq.put(child);
       }
