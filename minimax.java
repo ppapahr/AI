@@ -39,11 +39,9 @@ public class minimax{
 			else if(max[0] == 2) {
 				System.out.println("MAX removed 1 black");
 				cubes[0] = cubes[0] - 1;
-				cubes[1] = cubes[1];
 			}
 			else if(max[0] == 3) {
 				System.out.println("MAX removed 1 white");
-				cubes[0] = cubes[0];
 				cubes[1] = cubes[1] - 1;
 			}
 			else {
@@ -64,13 +62,12 @@ public class minimax{
 			
 			playerMove = input.nextInt();
 			
-			// check if the player typed a correct move
+			// check if the player typed a correct move that can be done
 			while((playerMove != 0) && (playerMove != 1) && (playerMove != 2) && (playerMove != 3)) {
 				System.out.println("Invalid move!");
 				playerMove = input.nextInt();
 			}
 			
-			// check if the move can be done
 			while( (playerMove == 0) && !(cubes[0] > 1) && (cubes[1] > 0) ) {
 				System.out.println("Move can not be performed, choose another move.");
 			}
@@ -87,7 +84,26 @@ public class minimax{
 				System.out.println("Move can not be performed, choose another move.");
 			}
 			
-			// end of code for players turn
+			// end of code for player move check
+			
+			if(playerMove == 0) {
+				System.out.println("PLAYER removed 2 black and 1 white");
+				cubes[0] = cubes[0] - 2;
+				cubes[1] = cubes[1] - 1;
+			}
+			if(playerMove == 1) {
+				System.out.println("PLAYER removed 1 black and 2 white");
+				cubes[0] = cubes[0] - 1;
+				cubes[1] = cubes[1] - 2;
+			}
+			if(playerMove == 2) {
+				System.out.println("PLAYER removed 1 black");
+				cubes[0] = cubes[0] - 1;
+			}
+			if(playerMove == 3) {
+				System.out.println("PLAYER removed 1 white");
+				cubes[1] = cubes[1] - 1;
+			}
 			
 			System.out.println("Black cubes: " + cubes[0] +"\nWhite cubes: " + cubes[1]);
 			
