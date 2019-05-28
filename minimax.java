@@ -1,15 +1,126 @@
+import java.util.Scanner;
 
-
-
+// 5 white 6 black
 
 
 
 public class minimax{
 	
+	// main
+	public static void main(String[] args) {
+		
+		minimax game = new minimax();
+		Scanner input = new Scanner(System.in);
+		int playerMove = -1;
+		int lastPlayer = 1;
+		
+		int[] max = new int[2];
+		// int player = 1;
+		
+		// cubes is a list with black in position 0 and white in 1
+		int[] cubes = new int[2];
+		cubes[0] = 6;
+		cubes[1] = 5;
+		
+		while(true) {
+			System.out.println("Black cubes: " + cubes[0] +"\nWhite cubes: " + cubes[1]);
+			
+			max = game.choose(cubes, 1);
+			if(max[0] == 0) {
+				System.out.println("MAX removed 2 black and 1 white");
+				cubes[0] = cubes[0] - 2;
+				cubes[1] = cubes[1] - 1;
+			}
+			else if(max[0] == 1) {
+				System.out.println("MAX removed 1 black and 2 white");
+				cubes[0] = cubes[0] - 1;
+				cubes[1] = cubes[1] - 2;
+			}
+			else if(max[0] == 2) {
+				System.out.println("MAX removed 1 black");
+				cubes[0] = cubes[0] - 1;
+				cubes[1] = cubes[1];
+			}
+			else if(max[0] == 3) {
+				System.out.println("MAX removed 1 white");
+				cubes[0] = cubes[0];
+				cubes[1] = cubes[1] - 1;
+			}
+			else {
+				System.out.println("error in int[2] max");
+			}
+			
+			System.out.println("Black cubes: " + cubes[0] +"\nWhite cubes: " + cubes[1]);
+			
+			// check if the game has ended
+			if(cubes[0] == 0 && cubes[1] == 0) {
+				break;
+			}
+			lastPlayer = -1;
+			System.out.println("Players turn");
+			System.out.println("choose move: \n2 black 1 white: 0\n1 black 2 white: 1\n1 black: 2\n1 white: 3 ");
+			
+			// player chooses what move he wants to make
+			
+			playerMove = input.nextInt();
+			
+			// check if the player typed a correct move
+			while((playerMove != 0) && (playerMove != 1) && (playerMove != 2) && (playerMove != 3)) {
+				System.out.println("Invalid move!");
+				playerMove = input.nextInt();
+			}
+			
+			// check if the move can be done
+			while( (playerMove == 0) && !(cubes[0] > 1) && (cubes[1] > 0) ) {
+				System.out.println("Move can not be performed, choose another move.");
+			}
+			
+			while( (playerMove == 1) && !(cubes[0] > 0) && (cubes[1] > 1) ) {
+				System.out.println("Move can not be performed, choose another move.");
+			}
+
+			while( (playerMove == 2) && !(cubes[0] > 0) ) {
+				System.out.println("Move can not be performed, choose another move.");
+			}
+
+			while( (playerMove == 3) && !(cubes[1] > 0) ) {
+				System.out.println("Move can not be performed, choose another move.");
+			}
+			
+			// end of code for players turn
+			
+			System.out.println("Black cubes: " + cubes[0] +"\nWhite cubes: " + cubes[1]);
+			
+			// check if the game has ended
+			if(cubes[0] == 0 && cubes[1] == 0) {
+				break;
+			}
+			
+			lastPlayer = 1;
+		}
+		System.out.println("Game ended");
+		
+		if(lastPlayer == 1 && (max[0] == 0 || max[0] == 1 || max[0] == 3)) {
+			System.out.println("MAX wins!");
+		}
+		else if(lastPlayer == -1 && (playerMove == 0 || playerMove == 1 || playerMove == 3)) {
+			System.out.println("Player wins!");
+		}
+		else {
+			System.out.println("Its a tie!");
+		}
+		
+	}
 	
 	
 	
-	public int[] choose(int[] cubes, int player) { // cubes is an list with black in position 0 and white in 1
+	
+	
+	
+	
+	
+	
+	public int[] choose(int[] cubes, int player) { 
 		
 		// pos 0 is what move was done and pos 1 is what value that move has
 		int [] output = new int[2];
