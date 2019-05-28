@@ -74,6 +74,8 @@ public class minimax{
 		// choose which value is best or worst
 		int move = chooseValue(moves, player);
 		
+		output[0] = move;
+		output[1] = moves[move][1];
 		
 		return output;
 	}
