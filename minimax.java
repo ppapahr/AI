@@ -11,10 +11,8 @@ public class minimax{
 	
 	public int[] choose(int[] cubes, int player) { // cubes is an list with black in position 0 and white in 1
 		
-		int[] value = new int [4];
-		int move;
 		
-		// checking which players turn is
+		int[][] moves = new int[4][2];
 		
 		// checking which moves can be done
 		
@@ -25,7 +23,7 @@ public class minimax{
 			c0[0] = cubes[0] - 2;
 			c0[1] = cubes[1] - 1;
 			
-			choose(c0, )
+			moves[0] = choose(c0, player * (-1) );
 		}
 		
 		// remove 2 white and 1 black
@@ -35,6 +33,7 @@ public class minimax{
 			c1[0] = cubes[0] - 1;
 			c1[1] = cubes[1] - 2;
 			
+			moves[1] = choose(c1, player * (-1) );
 		}
 		
 		// remove 1 black
@@ -44,6 +43,7 @@ public class minimax{
 			c2[0] = cubes[0] - 1;
 			c2[1] = cubes[1];
 			
+			moves[2] = choose(c2, player * (-1) );
 		}
 		
 		// remove 1 white
@@ -53,16 +53,23 @@ public class minimax{
 			c3[0] = cubes[0];
 			c3[1] = cubes[1] - 1;
 			
+			moves[3] = choose(c3, player * (-1) );
+		}
+		
+		// check which players turn is
+		if(player == 1) {
+			
+			
+			
+		}
+		else if(player == -1){
+			
 			
 			
 		}
 		
+		
 		int [] output = new int[2];
-		
-		
-		
-		output[0] = value;
-		output[1] = move;
 		return output;
 	}
 
