@@ -11,12 +11,24 @@ public class minimax{
 	
 	public int[] choose(int[] cubes, int player) { // cubes is an list with black in position 0 and white in 1
 		
+		// pos 0 is what move was done and pos 1 is what value that move has
+		int [] output = new int[2];
+		
+		// check if there are cubes left
+		if(cubes[0] == 0 && cubes[1] == 0) {
+			
+			output[0] = -1;
+			output[1] = -1;
+			return output;
+		}
+		
+		
 		
 		int[][] moves = new int[4][2];
 		
 		// checking which moves can be done
 		
-		// remove 2 black and 1 white
+		// remove 2 black and 1 white (move 0)
 		if( (cubes[0] > 1) && (cubes[1] > 0) ) {
 			
 			int[] c0 = new int[2]; 
@@ -26,7 +38,7 @@ public class minimax{
 			moves[0] = choose(c0, player * (-1) );
 		}
 		
-		// remove 2 white and 1 black
+		// remove 2 white and 1 black (move 1)
 		if( (cubes[0] > 0) && (cubes[1] > 1) ) {
 			
 			int[] c1 = new int[2];
@@ -36,7 +48,7 @@ public class minimax{
 			moves[1] = choose(c1, player * (-1) );
 		}
 		
-		// remove 1 black
+		// remove 1 black (move 2)
 		if(cubes[0] > 0) {
 			
 			int[] c2 = new int[2];
@@ -46,7 +58,7 @@ public class minimax{
 			moves[2] = choose(c2, player * (-1) );
 		}
 		
-		// remove 1 white
+		// remove 1 white (move 3)
 		if(cubes[1] > 0) {
 			
 			int[] c3 = new int[2];
@@ -56,21 +68,92 @@ public class minimax{
 			moves[3] = choose(c3, player * (-1) );
 		}
 		
-		// check which players turn is
+		// checks if any of the moves finish the game and gives them values
+		moves = fixValues(moves, player);
+		
+		// choose which value is best or worst
+		int move = chooseValue(moves, player);
+		
+		
+		return output;
+	}
+	
+	
+	public int chooseValue(int[][] moves,int player) {
+		int move = -1;
 		if(player == 1) {
 			
+			int max = 0;
 			
+			for(int i = 0; i < 4; i ++) {
+				
+				if(moves[i][1] > max) {
+					
+					max = moves[i][1];
+					move = i;
+				}
+			}
+		}
+		else{
+			
+			int min = 4;
+			
+			for(int i = 0; i < 4; i ++) {
+				
+				if((moves[i][1] < min) && (moves[i][1] > 0) ) {
+					
+					min = moves[i][1];
+					move = i;
+				}
+			}
+		}
+		return move;
+		
+	}
+	
+	// finish values are:
+	// MAX victory = 3
+	// tie = 2
+	// MAX loss = 1
+	public int[][] fixValues(int[][] values, int player){
+		
+		if(player == 1) {
+			
+			for(int i = 0; i < 4; i ++) {
+			
+				if( (values[i][0] == -1) && (i != 2) ) {
+					
+					values[i][1] = 3;
+					
+				}
+				if( (values[i][0] == -1) && (i == 2) ) {
+					
+					values[i][1] = 2;
+					
+				}
+			
+			}
+		}
+		else {
+			
+			for(int i = 0; i < 4; i ++) {
+				
+				if( (values[i][0] == -1) && (i != 2) ) {
+					
+					values[i][1] = 1;
+					
+				}
+				if( (values[i][0] == -1) && (i == 2) ) {
+					
+					values[i][1] = 2;
+					
+				}
+				
+			}
 			
 		}
-		else if(player == -1){
-			
-			
-			
-		}
+		return values;
 		
-		
-		int [] output = new int[2];
-		return output;
 	}
 
 	
