@@ -39,7 +39,7 @@ public class labyrinth{
 
     System.out.println("type the size of the maze.");
     size = input.nextInt();
-    System.out.println("type the chance for passable/blocked");
+    System.out.println("type the probability for generated accessible cells");
     probability = input.nextDouble();
     System.out.println("type the possition of the start");
     start[0] = input.nextInt();
