@@ -33,6 +33,8 @@ public class labyrinth{
     int[] g1 = new int[2];
     int[] g2 = new int[2];
 
+    // User input
+
     Scanner input = new Scanner(System.in);
 
     System.out.println("type the size of the maze.");
@@ -52,18 +54,24 @@ public class labyrinth{
     //Start initializing the problem
 
     labyrinth problem = new labyrinth();
+    // Initializing starting and end points in problem
     problem.setPoints(start, g1, g2);
     problem.generateMaze(size, probability);
     problem.printMaze();
+    // Solving the problem with UCS and A*
     problem.aStar();
     problem.ucsSolve();
+    // Calculating Cost of the two methods
     problem.calculateCost();
+    // Printing A* solution
     System.out.println("Astar solution: \n");
     System.out.println("\n");
     problem.printPathAstar();
+    // Printing UCS solution
     System.out.println("Ucs solution: \n");
     System.out.println("\n");
     problem.printPathUcs();
+    // Printing the methods' costs and expansions
     System.out.println("UCS cost: " + problem.ucs_cost);
     System.out.println("A* cost: " + problem.Astar_cost);
     System.out.println("UCS expansion: " + problem.ucs_expansion);
@@ -521,7 +529,7 @@ public class labyrinth{
 
   }
 
-//public boolean exists(int[] a)
+
 
 
 
