@@ -124,9 +124,10 @@ public class labyrinth{
     bfsq.put(start);
     int a = start.pos[0];
     int b = start.pos[1];
+	
+	// we make the starting position passable
     if(maze_ucs[a][b] == 0){
-      System.out.println("first cell is blocked, cannot begin");
-      return false;
+      maze_ucs[a][b] == 1;;
     }
     while(!bfsq.isEmpty()){
       node temp = bfsq.get();
@@ -348,9 +349,10 @@ public class labyrinth{
 
   public boolean aStar(){
 
+	
+	// we make the starting point passable
 	if(maze_Astar[S[0]][S[1]] == 0) {
-		System.out.println("starting point is blocked");
-		return false;
+		maze_Astar[S[0][S[1]] == 1;
 	}
 
 
