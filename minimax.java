@@ -64,7 +64,7 @@ public class minimax{
 			playerMove = input.nextInt();
 
 			// check if the player typed a correct move that can be done
-			while((playerMove != 0) && (playerMove != 1) && (playerMove != 2) && (playerMove != 3)) {
+			/*while((playerMove != 0) && (playerMove != 1) && (playerMove != 2) && (playerMove != 3)) {
 				System.out.println("Invalid move!");
 				playerMove = input.nextInt();
 			}
@@ -83,7 +83,7 @@ public class minimax{
 
 			while( (playerMove == 3) && !(cubes[1] > 0) ) {
 				System.out.println("Move can not be performed, choose another move.");
-			}
+			} */
 
 			// end of code for player move check
 
