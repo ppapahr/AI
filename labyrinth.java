@@ -22,6 +22,59 @@ public class labyrinth{
   public int[] G1 = new int[2];
   public int[] G2 = new int[2];
 
+
+  // main
+
+  public static void main(String[] args){
+
+    int size;
+    double probability;
+    int[] start = new int[2];
+    int[] g1 = new int[2];
+    int[] g2 = new int[2];
+
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("type the size of the maze.");
+    size = input.nextInt();
+    System.out.println("type the chance for passable/blocked");
+    probability = input.nextDouble();
+    System.out.println("type the possition of the start");
+    start[0] = input.nextInt();
+    start[1] = input.nextInt();
+    System.out.println("type the possition of the end 1");
+    g1[0] = input.nextInt();
+    g1[1] = input.nextInt();
+    System.out.println("type the possition of the end 2");
+    g2[0] = input.nextInt();
+    g2[1] = input.nextInt();
+
+    //Start initializing the problem
+
+    labyrinth problem = new labyrinth();
+    problem.setPoints(start, g1, g2);
+    problem.generateMaze(size, probability);
+    problem.printMaze();
+    problem.aStar();
+    problem.ucsSolve();
+    problem.calculateCost();
+    System.out.println("Astar solution: \n");
+    System.out.println("\n");
+    problem.printPathAstar();
+    System.out.println("Ucs solution: \n");
+    System.out.println("\n");
+    problem.printPathUcs();
+    System.out.println("UCS cost: " + problem.ucs_cost);
+    System.out.println("A* cost: " + problem.Astar_cost);
+    System.out.println("UCS expansion: " + problem.ucs_expansion);
+    System.out.println("A* expansion: " + problem.Astar_expansion);
+
+
+
+
+  }
+
+
   public void setPoints(int[] start, int[] e1, int[] e2){
     S[0] = start[0];
     S[1] = start[1];
@@ -305,10 +358,10 @@ public class labyrinth{
 
 		int x = check.pos[0];
 		int y = check.pos[1];
-		
+
 		// mark the spot as visited
 		maze_Astar[x][y] = -1;
-		
+
 		// checking if I have reached an end point
 		if(check.pos[0] == G1[0] && check.pos[1] == G1[1]){
 
@@ -456,7 +509,7 @@ public class labyrinth{
 		searchField.remove(check);
 
 
-		
+
 		Astar_expansion ++;
 
 	}
@@ -550,63 +603,6 @@ public int euCost(node n){
 
 	  return Math.sqrt((double)d); //need to check the casting to double
   }
-
-
-
-
-
-  // main
-
-	public static void main(String[] args){
-
-		int size;
-		double probability;
-		int[] start = new int[2];
-		int[] g1 = new int[2];
-		int[] g2 = new int[2];
-
-		Scanner input = new Scanner(System.in);
-
-		System.out.println("type the size of the maze.");
-		size = input.nextInt();
-		System.out.println("type the chance for passable/blocked");
-		probability = input.nextDouble();
-		System.out.println("type the possition of the start");
-		start[0] = input.nextInt();
-		start[1] = input.nextInt();
-		System.out.println("type the possition of the end 1");
-		g1[0] = input.nextInt();
-		g1[1] = input.nextInt();
-		System.out.println("type the possition of the end 2");
-		g2[0] = input.nextInt();
-		g2[1] = input.nextInt();
-
-    //Start initializing the problem
-
-    labyrinth problem = new labyrinth();
-    problem.setPoints(start, g1, g2);
-    problem.generateMaze(size, probability);
-    problem.printMaze();
-    problem.aStar();
-    problem.ucsSolve();
-    problem.calculateCost();
-    System.out.println("Astar solution: \n");
-    System.out.println("\n");
-    problem.printPathAstar();
-    System.out.println("Ucs solution: \n");
-    System.out.println("\n");
-    problem.printPathUcs();
-    System.out.println("UCS cost: " + problem.ucs_cost);
-    System.out.println("A* cost: " + problem.Astar_cost);
-    System.out.println("UCS expansion: " + problem.ucs_expansion);
-    System.out.println("A* expansion: " + problem.Astar_expansion);
-    
-    
-    
-    
-	}
-
-
 
 
 }
